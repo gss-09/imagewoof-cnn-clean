@@ -4,7 +4,7 @@ Prepared after the evening experiment session, November 7, 2026. This report cov
 
 ## 1. Current state: read this first
 
-- **Update November 7, 2026 (late): new best 83.4749% (1,081/1,295)**, DogCNN-v4, 150 epochs, crops 0.35–1.0, EMA 0.999 weights, best epoch 83. Bundle **`saved_models/v4_long150_8347/`**, tag **`v4-long150-83.47`**. Flip averaging measured separately 84.40%; `predict` still single view. See `experiments/round1/README.md` and `experiments/round2/README.md`. Round runs: `r1_v3_control` 80.77%, `r1_v4_wide` 81.39%, `r1_v3_long150` 82.70%, `r2_v4_long150` 83.47%. No training active. The bullets below describe the earlier state (80.93% best) and are kept for history.
+- **Update November 7, 2026 (late): new best 83.4749% (1,081/1,295)**, DogCNN-v4, 150 epochs, crops 0.35–1.0, EMA 0.999 weights, best epoch 83. Bundle **`saved_models/v4_long150_8347/`**, tag **`v4-long150-83.47`**. Flip averaging measured separately 84.40%; `predict` still single view. See `experiments/round1/README.md`, `experiments/round2/README.md` and `experiments/round3/README.md` (round 3: no new best; seed 43 gave 82.93%, stronger aug 82.63%). Round runs: `r1_v3_control` 80.77%, `r1_v4_wide` 81.39%, `r1_v3_long150` 82.70%, `r2_v4_long150` 83.47%. No training active. The bullets below describe the earlier state (80.93% best) and are kept for history.
 
 - Best measured validation result: **80.9266409% (1,048/1,295)**, DogCNN-v3, epoch45 of a 50-epoch run with AdamW weight decay0.001.
 - Selected bundle: **`saved_models/v3_wd001_8093/`**. Contains the actual trained `model.pth`, exact `solution.py`, requirements, config, summary, and SHA-256 manifest. Binary weights intentionally committed to local Git, tag **`v3-wd001-80.93`**.
@@ -107,6 +107,8 @@ All full runs used seed42 and the supplied split. Full fresh runs used AdamW, ba
 | `runs/r1_v4_wide` | v4 (2x wide), EMA | 50 | 34 (EMA) | 81.3900%, 1054/1295 |
 | `runs/r1_v3_long150` | v3, 150 epochs, crop 0.35, EMA | 150 | 71 (EMA) | 82.7027%, 1071/1295 |
 | `runs/r2_v4_long150` | v4, 150 epochs, crop 0.35, EMA | 150 | 83 (EMA) | **83.4749%, 1081/1295** |
+| `runs/r3_v4_aug_strong` | v4, 150 epochs, crop 0.25 + rotation ±10°, EMA | 150 | 88 (EMA) | 82.6255%, 1070/1295 |
+| `runs/r3_v4_seed43` | as r2_v4_long150, seed 43 | 150 | 53 (EMA) | 82.9344%, 1074/1295 |
 
 Interpretation:
 

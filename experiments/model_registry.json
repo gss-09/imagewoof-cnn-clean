@@ -316,5 +316,57 @@
     "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
     "flip_average_correct_measured_separately": 1059,
     "note": "Round 1: DogCNN-v4 50 epochs crop 0.85, EMA best epoch 34, 81.39%; raw best 81.24% @45. Not bundled."
+  },
+  {
+    "run": "runs/r3_v4_aug_strong",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 88,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8262548262548263,
+      "public_predict_accuracy": 0.8262548262548263,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8518518518518519,
+        "rhodesian_ridgeback": 0.8740740740740741,
+        "beagle": 0.8074074074074075,
+        "english_foxhound": 0.575,
+        "border_terrier": 0.8296296296296296,
+        "australian_terrier": 0.8074074074074075,
+        "golden_retriever": 0.8,
+        "old_english_sheepdog": 0.837037037037037,
+        "samoyed": 0.9333333333333333,
+        "dingo": 0.8444444444444444
+      }
+    },
+    "checkpoint_sha256": "44f68d8c63c33b0a4f11506703b89ae922ef3248e5a3c470cd9e802a91f73e64",
+    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+    "flip_average_correct_measured_separately": 1081,
+    "note": "Round 3: DogCNN-v4 150 epochs crop 0.25 + rotation \u00b110\u00b0, EMA best epoch 88, 82.63%; raw best 82.01% @117. Stronger aug did not help. Not bundled."
+  },
+  {
+    "run": "runs/r3_v4_seed43",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 53,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8293436293436294,
+      "public_predict_accuracy": 0.8293436293436294,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8444444444444444,
+        "rhodesian_ridgeback": 0.837037037037037,
+        "beagle": 0.837037037037037,
+        "english_foxhound": 0.525,
+        "border_terrier": 0.8518518518518519,
+        "australian_terrier": 0.8148148148148148,
+        "golden_retriever": 0.8074074074074075,
+        "old_english_sheepdog": 0.8888888888888888,
+        "samoyed": 0.9259259259259259,
+        "dingo": 0.837037037037037
+      }
+    },
+    "checkpoint_sha256": "ca2527d761ec53f63bf50c84d68fc64fa2069e97a8ed23a1c2f804c3ce58edf4",
+    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+    "flip_average_correct_measured_separately": 1079,
+    "note": "Round 3: same recipe as 83.47% best but seed 43; EMA best epoch 53, 82.93%; raw best 82.86% @103. Seed noise ~0.5 point. Not bundled."
   }
 ]
