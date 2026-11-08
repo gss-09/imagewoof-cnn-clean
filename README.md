@@ -4,13 +4,13 @@ This baseline implements the six-convolution model discussed in the course workf
 
 ## Current status
 
-- **DogCNN-v3 prepared, not trained:** ten convolutions; channels 32, 64, 128, 256, 256; successful gentler-crop augmentation, no random erasing. See [plan and checks](experiments/depth_10conv.md).
+- **DogCNN-v3 completed: 80.00% (1,036/1,295), epoch 45.** All 50 epochs finished; public prediction and CPU portability checks passed. Architecture: ten convolutions; channels 32, 64, 128, 256, 256; successful gentler-crop augmentation, no random erasing. See [plan and checks](experiments/depth_10conv.md).
 
 - **Random erasing completed:** best **78.22% (1,013/1,295), epoch 41**; public prediction and CPU portability checks passed. Lower than 78.92%, so retain the gentler-crop checkpoint. No training is active. See [results](experiments/random_erasing.md).
 
 - **Gentler crop completed:** fresh CUDA v2 training reached **78.92% (1,022/1,295), epoch 47**, verified through public prediction. The checkpoint and exact source are saved locally in `runs/gentler_crop_085/`. See [experiment report](experiments/gentler_crop.md).
 
-- **Saved best model:** [78.92% bundle](saved_models/v2_crop085_7892/README.md) includes exact source and weights, committed in Git under tag `best-v2-7892-bundle`. [best_model/](best_model/README.md) remains the historical 78.15% bundle. [Process report](experiments/PROCESS.md) records the full workflow and results. Disposable smoke runs were removed after archiving their JSON records in `experiments/smoke_checks.json`; full experiment records and both original trained checkpoints remain.
+- **Saved best model:** [80.00% v3 bundle](saved_models/v3_depth10_8000/README.md) includes exact code and weights (tag `v3-depth10-80.00`). The preserved [78.92% v2 bundle](saved_models/v2_crop085_7892/README.md) includes exact source and weights, committed in Git under tag `best-v2-7892-bundle`. [best_model/](best_model/README.md) remains the historical 78.15% bundle. [Process report](experiments/PROCESS.md) records the full workflow and results. Disposable smoke runs were removed after archiving their JSON records in `experiments/smoke_checks.json`; full experiment records and both original trained checkpoints remain.
 
 - **Continuation completed:** `runs/depth_8conv_continue` stopped after seven extra MPS epochs (5.02 minutes) without beating 78.15%. Best extra-epoch validation was 77.22%; the run retained the original best weights. It used fresh AdamW at 0.0001, cosine decay, and patience seven. See [continuation settings](experiments/continuation.md). `--init-checkpoint` loads weights with a fresh optimizer and schedule; it does not restore optimizer state.
 
@@ -125,4 +125,4 @@ Git stores code and small experiment records; datasets and ordinary run weights 
 
 `git log --oneline` shows progress. Tag `v2-crop085-78.92` preserves the completed gentler-crop code before random erasing. Use `git show v2-crop085-78.92:solution.py` to inspect it without replacing current files. The first commit also preserves earlier run metadata and the original 78.15% bundle source; earlier commits were not reconstructed.
 
-DogCNN-v3 adds a fifth block and widens block four: channels `32, 64, 128, 256, 256`, ten convolutions and five pooling stages. Select `--architecture DogCNN-v3`; default remains v1. Current code restores augmentation from the winning gentler-crop run. V3 has no trained accuracy yet.
+DogCNN-v3 adds a fifth block and widens block four: channels `32, 64, 128, 256, 256`, ten convolutions and five pooling stages. Select `--architecture DogCNN-v3`; default remains v1. Current code restores augmentation from the winning gentler-crop run. V3 completed with 80.00% best validation accuracy at epoch 45.

@@ -42,12 +42,16 @@ No training remains active. The model bundle has not been submitted; group infor
 
 ## Gentler crop completed
 
-Root `solution.py` now raises the minimum crop area from 0.7 to 0.85. The saved best bundle retains its original code and weights. See [gentler crop experiment](gentler_crop.md); the fresh v2 CUDA run completed 50 epochs in `runs/gentler_crop_085`. Best epoch 47 reached 78.9189% (1,022/1,295), reproduced through public prediction. This is the highest measured result; the historical `best_model/` bundle remains intact. Full run records, weights, and exact training source have been copied to the laptop.
+Root `solution.py` now raises the minimum crop area from 0.7 to 0.85. The saved best bundle retains its original code and weights. See [gentler crop experiment](gentler_crop.md); the fresh v2 CUDA run completed 50 epochs in `runs/gentler_crop_085`. Best epoch 47 reached 78.9189% (1,022/1,295), reproduced through public prediction. This was the highest measured result before v3; the historical `best_model/` bundle remains intact. Full run records, weights, and exact training source have been copied to the laptop.
 
 ## Next experiment and version history
 
 Random erasing completed 50 epochs: best 78.2239% (1,013/1,295), epoch 41; public prediction and CPU verification passed. It trails gentler crop by 9 correct images. Keep the 78.9189% checkpoint. No training remains active; see [settings](random_erasing.md). Local Git tag `v2-crop085-78.92` preserves the completed CUDA model code. `model_registry.json` records checkpoint hashes. Weights remain outside Git in local run folders.
 
-## Prepared larger architecture
+## Larger architecture preparation (historical)
 
-DogCNN-v3 is implemented without training; see [plan](depth_10conv.md). Best 78.92% model and exact Python source are archived in `saved_models/v2_crop085_7892/` and committed including weights under tag `best-v2-7892-bundle`. Historical bundles and original runs remain intact.
+Before the authorized run, DogCNN-v3 was implemented without training; see [plan](depth_10conv.md). Best 78.92% model and exact Python source are archived in `saved_models/v2_crop085_7892/` and committed including weights under tag `best-v2-7892-bundle`. Historical bundles and original runs remain intact.
+
+## Completed larger architecture
+
+DogCNN-v3 completed 50 CUDA epochs: best epoch45 80.00% (1,036/1,295), 14 more correct images than v2 gentler crop. Public prediction and CPU portability checks passed. Exact source and weights are saved with verified hashes. New best bundle: `saved_models/v3_depth10_8000/`, intentionally committed including weights under tag `v3-depth10-80.00`. Earlier bundles remain intact. No training remains active. See [results](depth_10conv.md).

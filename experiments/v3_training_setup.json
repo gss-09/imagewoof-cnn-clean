@@ -1,0 +1,19 @@
+{
+  "architecture": "DogCNN-v3",
+  "batch_shape": [
+    32,
+    3,
+    128,
+    128
+  ],
+  "labels_min": 0,
+  "labels_max": 0,
+  "logits_shape": [
+    32,
+    10
+  ],
+  "loss": 2.5503265857696533,
+  "finite_loss": true,
+  "peak_cuda_memory_bytes": 701536768,
+  "note": "Disposable setup model; full run starts fresh with seed 42."
+}

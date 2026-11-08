@@ -1,0 +1,15 @@
+{
+  "source_run": "runs/depth_10conv",
+  "architecture": "DogCNN-v3",
+  "validation_correct": 1036,
+  "validation_images": 1295,
+  "best_epoch": 45,
+  "validation_accuracy": 0.8,
+  "files_sha256": {
+    "config.json": "ee722a2b7ec7d0f520bc6fb8848bdceeac6160d5c46b6fb73b15178832ce1f81",
+    "model.pth": "b0bcdc5620a379dc9050141d44ca74456eb6433e6e4fc2d0fc483cbf84329004",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "e5b64b60e5fe2c48848f7880dda5a97feac26c175773bb71530d2abaf949847a",
+    "summary.json": "a14ac6b1bbca9ccd323d9ccb3af404ff09e2fbca20eb64602be2afb1b7a9d1e0"
+  }
+}

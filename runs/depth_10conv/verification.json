@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "checks": [
+    "official labels",
+    "preprocessing parity",
+    "repeatability",
+    "single/multiple/empty batches",
+    "input validation",
+    "isolated fresh-process checkpoint loading"
+  ],
+  "checkpoint_hashes_match": true,
+  "checkpoint_sha256": "b0bcdc5620a379dc9050141d44ca74456eb6433e6e4fc2d0fc483cbf84329004",
+  "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d"
+}
