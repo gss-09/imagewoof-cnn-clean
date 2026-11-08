@@ -249,6 +249,8 @@ def train(args):
         raise ValueError("epochs, batch-size, and patience must be positive; workers nonnegative")
     if not 0.0 < args.crop_min <= 1.0:
         raise ValueError("--crop-min must be in (0, 1]")
+    if not 0.0 <= args.rotate <= 45.0:
+        raise ValueError("--rotate must be in [0, 45] degrees")
     if not 0.0 <= args.ema_decay < 1.0:
         raise ValueError("--ema-decay must be in [0, 1); 0 disables weight averaging")
     if not 0 <= args.warmup_epochs < args.epochs:
@@ -274,7 +276,9 @@ def train(args):
     output = args.output
     output.mkdir(parents=True, exist_ok=False)
 
-    train_transform = transforms.Compose([
+    # Optional small rotation before cropping (0 = off, reproducing earlier runs exactly).
+    rotation = [transforms.RandomRotation(args.rotate)] if args.rotate else []
+    train_transform = transforms.Compose(rotation + [
         transforms.RandomResizedCrop(128, scale=(args.crop_min, 1.0)),
         transforms.RandomHorizontalFlip(),
         transforms.ColorJitter(brightness=0.15, contrast=0.15, saturation=0.15),
@@ -300,7 +304,8 @@ def train(args):
                   architecture=args.architecture, class_names=list(CLASS_NAMES),
                   mean=list(MEAN), std=list(STD), split="provided split",
                   augmentation=f"random resized crop scale {args.crop_min:g}–1.0, horizontal flip, "
-                               "color jitter 0.15",
+                               "color jitter 0.15"
+                               + (f", rotation ±{args.rotate:g}° before crop" if args.rotate else ""),
                   optimizer=("AdamW" if args.optimizer == "adamw" else
                              f"SGD Nesterov momentum {args.momentum:g}"),
                   scheduler=(f"linear warmup {args.warmup_epochs} epochs, then cosine"
@@ -423,6 +428,8 @@ def main():
                              "v4: v3 layout with every block twice as wide")
     parser.add_argument("--crop-min", type=float, default=0.85,
                         help="Smallest RandomResizedCrop area fraction (training only)")
+    parser.add_argument("--rotate", type=float, default=0.0,
+                        help="Max random rotation in degrees before cropping (training only); 0 disables")
     parser.add_argument("--optimizer", choices=("adamw", "sgd"), default="adamw")
     parser.add_argument("--momentum", type=float, default=0.9, help="SGD Nesterov momentum")
     parser.add_argument("--warmup-epochs", type=int, default=0,
