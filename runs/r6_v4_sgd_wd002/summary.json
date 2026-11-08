@@ -1,0 +1,19 @@
+{
+  "smoke_run": false,
+  "best_epoch": 113,
+  "validation_images": 1295,
+  "validation_accuracy": 0.8563706563706563,
+  "public_predict_accuracy": 0.8563706563706563,
+  "per_class_accuracy": {
+    "shih_tzu": 0.8740740740740741,
+    "rhodesian_ridgeback": 0.8740740740740741,
+    "beagle": 0.8592592592592593,
+    "english_foxhound": 0.575,
+    "border_terrier": 0.8666666666666667,
+    "australian_terrier": 0.8296296296296296,
+    "golden_retriever": 0.8518518518518519,
+    "old_english_sheepdog": 0.8814814814814815,
+    "samoyed": 0.9407407407407408,
+    "dingo": 0.8962962962962963
+  }
+}

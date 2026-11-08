@@ -472,5 +472,55 @@
     "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
     "flip_average_correct_measured_separately": 1120,
     "note": "Round 5: SGD best recipe with wd 0.001; EMA best epoch 123, 86.72% (1,123) CPU / 86.64% (1,122) accelerator predict. New best; bundled in saved_models/v4_sgd_wd001_8672."
+  },
+  {
+    "run": "runs/r6_v4_sgd_wd002",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 113,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8563706563706563,
+      "public_predict_accuracy": 0.8563706563706563,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8740740740740741,
+        "rhodesian_ridgeback": 0.8740740740740741,
+        "beagle": 0.8592592592592593,
+        "english_foxhound": 0.575,
+        "border_terrier": 0.8666666666666667,
+        "australian_terrier": 0.8296296296296296,
+        "golden_retriever": 0.8518518518518519,
+        "old_english_sheepdog": 0.8814814814814815,
+        "samoyed": 0.9407407407407408,
+        "dingo": 0.8962962962962963
+      }
+    },
+    "checkpoint_sha256": "680e5f18a667a6381d1fdd9cadc04a18bd10741a32c74ade061f407730eab6a3",
+    "source_sha256": "327e43fb9d0f58a9a0d511074a9081953df6a3ab6574df3d295d0504e4ac2872",
+    "note": "Round 6: 86.72% recipe with wd 0.002; EMA best epoch 113, 85.64% (1,109); memorized late (train 99.5% at 150). No new best."
+  },
+  {
+    "run": "runs/r6_v4_trainval_ep125",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 125,
+      "validation_images": 1295,
+      "validation_accuracy": 0.9992277992277993,
+      "public_predict_accuracy": 0.9992277992277993,
+      "per_class_accuracy": {
+        "shih_tzu": 1.0,
+        "rhodesian_ridgeback": 1.0,
+        "beagle": 1.0,
+        "english_foxhound": 0.9875,
+        "border_terrier": 1.0,
+        "australian_terrier": 1.0,
+        "golden_retriever": 1.0,
+        "old_english_sheepdog": 1.0,
+        "samoyed": 1.0,
+        "dingo": 1.0
+      }
+    },
+    "checkpoint_sha256": "508cf0ac9e688a2292b86d8945cee2370defa5b78a809fa96f82ab57e5bfe6e3",
+    "source_sha256": "327e43fb9d0f58a9a0d511074a9081953df6a3ab6574df3d295d0504e4ac2872",
+    "note": "Round 6: 86.72% recipe trained on train+val (10,360 images), fixed stop at epoch 125 of a 150-epoch schedule; 'validation' scores are on training images (99.92%), not a held-out measure. CPU verifier passed. Candidate final model; not selected."
   }
 ]
