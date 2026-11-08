@@ -368,5 +368,57 @@
     "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
     "flip_average_correct_measured_separately": 1079,
     "note": "Round 3: same recipe as 83.47% best but seed 43; EMA best epoch 53, 82.93%; raw best 82.86% @103. Seed noise ~0.5 point. Not bundled."
+  },
+  {
+    "run": "runs/r4_v4_sgd_lr005",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 89,
+      "validation_images": 1295,
+      "validation_accuracy": 0.861003861003861,
+      "public_predict_accuracy": 0.861003861003861,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8592592592592593,
+        "rhodesian_ridgeback": 0.8740740740740741,
+        "beagle": 0.8444444444444444,
+        "english_foxhound": 0.7,
+        "border_terrier": 0.8444444444444444,
+        "australian_terrier": 0.8592592592592593,
+        "golden_retriever": 0.8814814814814815,
+        "old_english_sheepdog": 0.8814814814814815,
+        "samoyed": 0.9259259259259259,
+        "dingo": 0.8740740740740741
+      }
+    },
+    "checkpoint_sha256": "930c050e01677cba352670f31ac38546fbb77c4cdab69c339ac8275448c8a229",
+    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+    "flip_average_correct_measured_separately": 1119,
+    "note": "Round 4: best recipe with SGD Nesterov lr 0.05 wd 0.0005 warm-up 5; EMA best epoch 89, 86.10% (1,115); raw best 85.10% @150. New best; bundled in saved_models/v4_sgd005_8610."
+  },
+  {
+    "run": "runs/r4_v4_sgd_lr01",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 118,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8563706563706563,
+      "public_predict_accuracy": 0.8563706563706563,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8740740740740741,
+        "rhodesian_ridgeback": 0.9111111111111111,
+        "beagle": 0.8222222222222222,
+        "english_foxhound": 0.6,
+        "border_terrier": 0.8518518518518519,
+        "australian_terrier": 0.837037037037037,
+        "golden_retriever": 0.8592592592592593,
+        "old_english_sheepdog": 0.8962962962962963,
+        "samoyed": 0.9333333333333333,
+        "dingo": 0.8740740740740741
+      }
+    },
+    "checkpoint_sha256": "1f5b57cfb2467f82897711dcfd5eacda78a964cc94b4d649d752368f2b59e53d",
+    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+    "flip_average_correct_measured_separately": 1110,
+    "note": "Round 4: same with SGD lr 0.1; EMA best epoch 118, 85.64% (1,109); raw best 85.33% @146. Not bundled."
   }
 ]
