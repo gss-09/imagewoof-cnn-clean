@@ -1,0 +1,23 @@
+{
+  "source_run": "runs/r10_v4_resplit9505",
+  "split": "supplied train+val pooled, stratified 95/5 re-split, seed 42 (split.json)",
+  "train_images": 9842,
+  "validation_images": 518,
+  "validation_correct": 455,
+  "validation_accuracy": 0.8783783783783784,
+  "best_epoch": 126,
+  "cpu_check": "eval_split.py reproduces 455/518 = 87.84% on CPU; verify_pipeline passed",
+  "architecture": "DogCNN-v4",
+  "seed": 42,
+  "optimizer": "SGD Nesterov momentum 0.9, lr 0.05, wd 0.001, 5 warm-up epochs then cosine over 150",
+  "weight_average": "EMA 0.999 (saved weights are the averaged copy; plain sequential CNN)",
+  "files_sha256": {
+    "config.json": "5f1abb12aaa79696758bd2e5b2cdeaa9ae1a29910b8f9956bd398f460564acf1",
+    "eval_split.py": "5e36243c89481ca927c3d4e6705c47a8fd7bae2c72e28e8749d66df271d65354",
+    "model.pth": "8e71ad810c49c01627acfc9b702c6f8d213f0e99207656c650cdfc1d55def8b2",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "797ab617b6507593ad56719d980e394afc104c65f23b89e74631b823a78a9c36",
+    "split.json": "80ea0ebe1b145fd43f91a9f8747038c50a0c7f5c92ca3b6203225c00754103de",
+    "summary.json": "132b650674d6ffd466dcb461a2c1576e7cc67b4850059334b9eec739018dac7e"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_run": "runs/r9_v4_trainval_ep150",
+  "split": "all supplied train+val (100/0), no held-out images",
+  "train_images": 10360,
+  "validation_images": 0,
+  "validation_accuracy": null,
+  "epoch_saved": 150,
+  "note": "Unscored: 100% on supplied val is memorized. Identical to ep125 run through epoch 125, plus 25 epochs; on the supplied split those last epochs cost ~0.9 point. verify_pipeline passed.",
+  "architecture": "DogCNN-v4",
+  "seed": 42,
+  "optimizer": "SGD Nesterov momentum 0.9, lr 0.05, wd 0.001, 5 warm-up epochs then cosine over 150",
+  "weight_average": "EMA 0.999 (saved weights are the averaged copy; plain sequential CNN)",
+  "files_sha256": {
+    "config.json": "7855b6ff6b49420efa8dbd105f4083fc226b72e5f002cdec85540d0003a3d39e",
+    "model.pth": "c7a9e19f4b604e94e89c3318c1a0e0e8fda1deaba79eaf5093871add3879722e",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "797ab617b6507593ad56719d980e394afc104c65f23b89e74631b823a78a9c36",
+    "split.json": "a509d318e6352e4070a6bc9330815a1f0520c4f1ba4754a7270615be22560747",
+    "summary.json": "b325b7448a491928da9adf56ceeea138e2eb82f3bb1107295bdc823210b49ff6"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source_run": "runs/r6_v4_trainval_ep125",
+  "split": "all supplied train+val (100/0), no held-out images",
+  "train_images": 10360,
+  "validation_images": 0,
+  "validation_accuracy": null,
+  "epoch_saved": 125,
+  "note": "Unscored: its 99.92% on supplied val is memorized (val images were training data). Stopped at 125, near where every split peaked (123/126). verify_pipeline passed.",
+  "architecture": "DogCNN-v4",
+  "seed": 42,
+  "optimizer": "SGD Nesterov momentum 0.9, lr 0.05, wd 0.001, 5 warm-up epochs then cosine over 150",
+  "weight_average": "EMA 0.999 (saved weights are the averaged copy; plain sequential CNN)",
+  "files_sha256": {
+    "config.json": "904e5e94aa5491b1d109525faa6283621fb9c0ac9f01d0dac59ffcc352cd52bc",
+    "model.pth": "508cf0ac9e688a2292b86d8945cee2370defa5b78a809fa96f82ab57e5bfe6e3",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "6850ccfb09d037b6c21d3e7c62c53d7b9ee699c9e07abe351ba4181d5c01a61f",
+    "split.json": "a509d318e6352e4070a6bc9330815a1f0520c4f1ba4754a7270615be22560747",
+    "summary.json": "d9126e98cc46f0e393c54d9510ae97274dccc2af6025f0f9225c870886d3b2df"
+  }
+}
