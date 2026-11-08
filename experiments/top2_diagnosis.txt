@@ -1,0 +1,19 @@
+top-1 86.72% (1123/1295)  top-2 93.13% (1206/1295)
+of 172 wrong, 83 had the right breed as 2nd guess
+  shih_tzu               top1  88.1%  top2  94.8%
+  rhodesian_ridgeback    top1  88.9%  top2  95.6%
+  beagle                 top1  86.7%  top2  94.8%
+  english_foxhound       top1  56.2%  top2  73.8%
+  border_terrier         top1  88.1%  top2  91.1%
+  australian_terrier     top1  84.4%  top2  92.6%
+  golden_retriever       top1  86.7%  top2  94.1%
+  old_english_sheepdog   top1  93.3%  top2  97.0%
+  samoyed                top1  95.6%  top2  97.8%
+  dingo                  top1  86.7%  top2  91.9%
+most confused pairs (both directions):
+  beagle <-> english_foxhound: 28
+  golden_retriever <-> rhodesian_ridgeback: 10
+  australian_terrier <-> border_terrier: 10
+  dingo <-> rhodesian_ridgeback: 9
+  english_foxhound <-> rhodesian_ridgeback: 8
+  old_english_sheepdog <-> shih_tzu: 7
