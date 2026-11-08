@@ -257,6 +257,8 @@ def train(args):
         raise ValueError("--warmup-epochs must be nonnegative and smaller than --epochs")
     if args.stop_epoch is not None and not 1 <= args.stop_epoch <= args.epochs:
         raise ValueError("--stop-epoch must be between 1 and --epochs")
+    if args.resplit is not None and not (0.0 < args.resplit < 1.0 and not args.train_on_val):
+        raise ValueError("--resplit must be in (0, 1) and cannot be combined with --train-on-val")
     if args.train_on_val and args.init_checkpoint is not None:
         raise ValueError("--train-on-val starts from scratch; do not combine with --init-checkpoint")
     random.seed(args.seed)
@@ -295,6 +297,19 @@ def train(args):
                             16 if args.smoke else None, args.seed)
     val_data = DogDataset(args.data_root / "imagewoof_val/val", val_transform,
                           8 if args.smoke else None, args.seed)
+    if args.resplit is not None:
+        # Pool the supplied train and validation images and re-split each breed with the
+        # seed: a fraction --resplit becomes the new held-out validation set.
+        pool = train_data.samples + val_data.samples
+        rng = random.Random(args.seed)
+        new_train, new_val = [], []
+        for label in range(len(CLASS_NAMES)):
+            items = sorted(sample for sample in pool if sample[1] == label)
+            rng.shuffle(items)
+            held = round(len(items) * args.resplit)
+            new_val += items[:held]
+            new_train += items[held:]
+        train_data.samples, val_data.samples = sorted(new_train), sorted(new_val)
     if args.train_on_val:
         # Final retrain: validation images join training with training augmentation.
         # Validation scores below are then measured on training images (monitoring only).
@@ -312,7 +327,10 @@ def train(args):
                   architecture=args.architecture, class_names=list(CLASS_NAMES),
                   mean=list(MEAN), std=list(STD),
                   split=("train + validation combined; validation scores are on training images"
-                         if args.train_on_val else "provided split"),
+                         if args.train_on_val else
+                         f"supplied train+val pooled, stratified re-split {1 - args.resplit:g}/"
+                         f"{args.resplit:g} with seed {args.seed}" if args.resplit is not None
+                         else "provided split"),
                   augmentation=f"random resized crop scale {args.crop_min:g}–1.0, horizontal flip, "
                                "color jitter 0.15"
                                + (f", rotation ±{args.rotate:g}° before crop" if args.rotate else ""),
@@ -459,6 +477,9 @@ def main():
     parser.add_argument("--train-on-val", action="store_true",
                         help="Final retrain: add validation images to training and save the last "
                              "epoch (no held-out selection)")
+    parser.add_argument("--resplit", type=float,
+                        help="Pool supplied train+val and hold out this fraction per breed "
+                             "(e.g. 0.3 for a 70/30 split, seeded); default keeps the supplied split")
     parser.add_argument("--stop-epoch", type=int,
                         help="End training after this epoch while the schedule still spans --epochs")
     parser.add_argument("--smoke", action="store_true", help="At most 2 epochs; 160 train / 80 val images")
