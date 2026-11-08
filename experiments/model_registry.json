@@ -559,5 +559,16 @@
     "checkpoint_sha256": "1a0341070172c4d66fe9958268263df1e4167faab7af70135ceb2d4e34d520ec",
     "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
     "note": "86.72% recipe on seeded stratified 90/10 re-split of pooled train+val (9,324/1,036). EMA best @83 85.91% (890/1,036); final 84.75%; flip best 86.78% @149. Not directly comparable to 86.72% (different val set)."
+  },
+  {
+    "run": "runs/r9_v4_trainval_ep150",
+    "summary": {
+      "epochs": 150,
+      "train_images": 10360,
+      "validation": "none held out (100/0); in-training val 100% is memorized"
+    },
+    "checkpoint_sha256": "c7a9e19f4b604e94e89c3318c1a0e0e8fda1deaba79eaf5093871add3879722e",
+    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+    "note": "86.72% recipe on all supplied train+val (--train-on-val), full 150 epochs, final epoch saved. Unscored; CPU verifier passed."
   }
 ]
