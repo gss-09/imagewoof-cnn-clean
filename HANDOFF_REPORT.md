@@ -197,6 +197,16 @@ Tags include `v2-crop085-78.92`, `v2-erasing025-78.22`, `best-v2-7892-bundle`, `
 
 The user prefers action over repeated confirmation, short clear progress updates, and explanations in plain language. For setup-only requests stop before training; for explicit launch requests launch after accelerator checks. Earlier compaction-related setup stops were superseded by later explicit training authorization. There is currently no authorization for an additional unrequested experiment.
 
+### Update after the report: stronger weight decay (no gain)
+
+| Run directory | Change | Best epoch | Best validation | Flip-averaged (measured separately) |
+| --- | --- | ---: | ---: | ---: |
+| `runs/v3_weight_decay_001` | wd 0.001 (current best) | 45 | 80.9266%, 1048/1295 | 81.8533%, 1060/1295 |
+| `runs/v3_wd_01` | wd 0.01 | 39 | 79.4595%, 1029/1295 | 79.3822%, 1028/1295 |
+| `runs/v3_wd_05` | wd 0.05 | 43 | 79.9228%, 1035/1295 | 81.0039%, 1049/1295 |
+
+Both new runs: fresh 50 epochs, everything else identical, completed, public `predict` reproduced, splits identical. Weight decay 0.001 remains best. Flip averaging is not implemented in `predict`; the user will decide later.
+
 ## 9. Remaining work and possible directions
 
 No new experiment is prepared or running beyond the completed ones above. Previously discussed ideas include testing an alternative optimizer such as SGD with momentum, repeating the strongest setup with a different seed, or other manually selected compliant changes. These are possibilities, not completed work or guaranteed improvements. Stronger augmentation by random erasing and simple continuation have already been tested and failed to help in these settings. Do not repeat them accidentally.

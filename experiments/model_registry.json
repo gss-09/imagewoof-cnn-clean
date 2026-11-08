@@ -168,5 +168,59 @@
     "weights_identical_to": "runs/v3_weight_decay_001/model.pth",
     "best_extra_epoch": 10,
     "best_extra_validation_accuracy": 0.8092664092664092
+  },
+  {
+    "run": "runs/v3_wd_01",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 39,
+      "validation_images": 1295,
+      "validation_accuracy": 0.7945945945945946,
+      "public_predict_accuracy": 0.7945945945945946,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8,
+        "rhodesian_ridgeback": 0.8518518518518519,
+        "beagle": 0.7925925925925926,
+        "english_foxhound": 0.4625,
+        "border_terrier": 0.8,
+        "australian_terrier": 0.8222222222222222,
+        "golden_retriever": 0.7555555555555555,
+        "old_english_sheepdog": 0.8666666666666667,
+        "samoyed": 0.8666666666666667,
+        "dingo": 0.7925925925925926
+      }
+    },
+    "checkpoint_sha256": "76e98f870a1d1583e270d95dd394892e5abcae5ea40ae9e1d5e0c7127ef124b4",
+    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+    "weight_decay": 0.01,
+    "flip_average_validation_accuracy_measured_separately": 0.7938223938223938,
+    "note": "No improvement over runs/v3_weight_decay_001 (80.93%); weights not bundled."
+  },
+  {
+    "run": "runs/v3_wd_05",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 43,
+      "validation_images": 1295,
+      "validation_accuracy": 0.7992277992277992,
+      "public_predict_accuracy": 0.7992277992277992,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8222222222222222,
+        "rhodesian_ridgeback": 0.8518518518518519,
+        "beagle": 0.8,
+        "english_foxhound": 0.5125,
+        "border_terrier": 0.8222222222222222,
+        "australian_terrier": 0.8074074074074075,
+        "golden_retriever": 0.7703703703703704,
+        "old_english_sheepdog": 0.7925925925925926,
+        "samoyed": 0.9333333333333333,
+        "dingo": 0.762962962962963
+      }
+    },
+    "checkpoint_sha256": "67af6b5c639b5b62f21d9188b98fd6c623deb66b5ec8dcb6f36e68cda4692e10",
+    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+    "weight_decay": 0.05,
+    "flip_average_validation_accuracy_measured_separately": 0.81003861003861,
+    "note": "No improvement over runs/v3_weight_decay_001 (80.93%); weights not bundled."
   }
 ]
