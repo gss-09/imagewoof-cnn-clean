@@ -4,6 +4,8 @@ This baseline implements the six-convolution model discussed in the course workf
 
 ## Current status
 
+- **Next experiment prepared only:** v3 with weight decay `0.001` instead of `0.0001`; all other training settings retained. [Plan and launcher](experiments/v3_weight_decay_001/README.md). Stopped before training.
+
 - **DogCNN-v3 completed: 80.00% (1,036/1,295), epoch 45.** All 50 epochs finished; public prediction and CPU portability checks passed. Architecture: ten convolutions; channels 32, 64, 128, 256, 256; successful gentler-crop augmentation, no random erasing. See [plan and checks](experiments/depth_10conv.md).
 
 - **Random erasing completed:** best **78.22% (1,013/1,295), epoch 41**; public prediction and CPU portability checks passed. Lower than 78.92%, so retain the gentler-crop checkpoint. No training is active. See [results](experiments/random_erasing.md).
