@@ -4,7 +4,7 @@ This baseline implements the six-convolution model discussed in the course workf
 
 ## Current status
 
-- **Next experiment prepared only:** v3 with weight decay `0.001` instead of `0.0001`; all other training settings retained. [Plan and launcher](experiments/v3_weight_decay_001/README.md). Stopped before training.
+- **New best: 80.93% (1,048/1,295), epoch 45.** V3 with AdamW weight decay `0.001` completed all 50 epochs. +12 correct images over previous v3; public prediction and CPU verification passed. No training active. [Experiment results](experiments/v3_weight_decay_001/README.md).
 
 - **DogCNN-v3 completed: 80.00% (1,036/1,295), epoch 45.** All 50 epochs finished; public prediction and CPU portability checks passed. Architecture: ten convolutions; channels 32, 64, 128, 256, 256; successful gentler-crop augmentation, no random erasing. See [plan and checks](experiments/depth_10conv.md).
 
@@ -12,7 +12,7 @@ This baseline implements the six-convolution model discussed in the course workf
 
 - **Gentler crop completed:** fresh CUDA v2 training reached **78.92% (1,022/1,295), epoch 47**, verified through public prediction. The checkpoint and exact source are saved locally in `runs/gentler_crop_085/`. See [experiment report](experiments/gentler_crop.md).
 
-- **Saved best model:** [80.00% v3 bundle](saved_models/v3_depth10_8000/README.md) includes exact code and weights (tag `v3-depth10-80.00`). The preserved [78.92% v2 bundle](saved_models/v2_crop085_7892/README.md) includes exact source and weights, committed in Git under tag `best-v2-7892-bundle`. [best_model/](best_model/README.md) remains the historical 78.15% bundle. [Process report](experiments/PROCESS.md) records the full workflow and results. Disposable smoke runs were removed after archiving their JSON records in `experiments/smoke_checks.json`; full experiment records and both original trained checkpoints remain.
+- **Saved best model:** [80.93% v3 bundle](saved_models/v3_wd001_8093/README.md) includes exact code and weights (tag `v3-wd001-80.93`). The earlier [80.00% v3 bundle](saved_models/v3_depth10_8000/README.md) includes exact code and weights (tag `v3-depth10-80.00`). The preserved [78.92% v2 bundle](saved_models/v2_crop085_7892/README.md) includes exact source and weights, committed in Git under tag `best-v2-7892-bundle`. [best_model/](best_model/README.md) remains the historical 78.15% bundle. [Process report](experiments/PROCESS.md) records the full workflow and results. Disposable smoke runs were removed after archiving their JSON records in `experiments/smoke_checks.json`; full experiment records and both original trained checkpoints remain.
 
 - **Continuation completed:** `runs/depth_8conv_continue` stopped after seven extra MPS epochs (5.02 minutes) without beating 78.15%. Best extra-epoch validation was 77.22%; the run retained the original best weights. It used fresh AdamW at 0.0001, cosine decay, and patience seven. See [continuation settings](experiments/continuation.md). `--init-checkpoint` loads weights with a fresh optimizer and schedule; it does not restore optimizer state.
 

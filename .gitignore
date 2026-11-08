@@ -19,3 +19,4 @@ setup/
 # Explicitly preserved best-model bundle includes its checkpoint.
 !saved_models/v2_crop085_7892/model.pth
 !saved_models/v3_depth10_8000/model.pth
+!saved_models/v3_wd001_8093/model.pth

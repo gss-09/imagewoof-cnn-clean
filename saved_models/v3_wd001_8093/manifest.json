@@ -1,0 +1,15 @@
+{
+  "source_run": "runs/v3_weight_decay_001",
+  "architecture": "DogCNN-v3",
+  "validation_correct": 1048,
+  "validation_images": 1295,
+  "best_epoch": 45,
+  "validation_accuracy": 0.8092664092664092,
+  "files_sha256": {
+    "config.json": "d2c0442b1092766da7d80ba9caf32555e53d0cbf5c8a715548839d011b0ed98f",
+    "model.pth": "c2edde1051dbe9e81d6cdde49610555c1527f0d2d724d1f898ae69e7f1265ce1",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "e5b64b60e5fe2c48848f7880dda5a97feac26c175773bb71530d2abaf949847a",
+    "summary.json": "39e04e3c3e38f881ca74575c55d27bb5ae15b582fc643dd19634abb13dbde018"
+  }
+}

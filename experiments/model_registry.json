@@ -116,5 +116,30 @@
     },
     "checkpoint_sha256": "b0bcdc5620a379dc9050141d44ca74456eb6433e6e4fc2d0fc483cbf84329004",
     "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d"
+  },
+  {
+    "run": "runs/v3_weight_decay_001",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 45,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8092664092664092,
+      "public_predict_accuracy": 0.8092664092664092,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8592592592592593,
+        "rhodesian_ridgeback": 0.8444444444444444,
+        "beagle": 0.762962962962963,
+        "english_foxhound": 0.6125,
+        "border_terrier": 0.8296296296296296,
+        "australian_terrier": 0.7777777777777778,
+        "golden_retriever": 0.7925925925925926,
+        "old_english_sheepdog": 0.8148148148148148,
+        "samoyed": 0.9407407407407408,
+        "dingo": 0.7777777777777778
+      }
+    },
+    "checkpoint_sha256": "c2edde1051dbe9e81d6cdde49610555c1527f0d2d724d1f898ae69e7f1265ce1",
+    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+    "bundle": "saved_models/v3_wd001_8093"
   }
 ]

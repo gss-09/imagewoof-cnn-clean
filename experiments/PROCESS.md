@@ -55,3 +55,7 @@ Before the authorized run, DogCNN-v3 was implemented without training; see [plan
 ## Completed larger architecture
 
 DogCNN-v3 completed 50 CUDA epochs: best epoch45 80.00% (1,036/1,295), 14 more correct images than v2 gentler crop. Public prediction and CPU portability checks passed. Exact source and weights are saved with verified hashes. New best bundle: `saved_models/v3_depth10_8000/`, intentionally committed including weights under tag `v3-depth10-80.00`. Earlier bundles remain intact. No training remains active. See [results](depth_10conv.md).
+
+## Stronger weight decay completed
+
+V3 AdamW weight decay 0.001 completed 50 CUDA epochs, otherwise identical to prior v3. Best epoch45: 80.9266% (1,048/1,295), +12 correct images over 80.00%. Final training98.18%, validation80.54%. Public prediction and CPU verifier passed; identical split and recorded hashes confirmed. New best bundle `saved_models/v3_wd001_8093/` includes weights in Git, tag `v3-wd001-80.93`; earlier bundles preserved. No training remains active.
