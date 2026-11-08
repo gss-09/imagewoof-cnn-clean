@@ -22,6 +22,7 @@ STD = (0.5, 0.5, 0.5)
 ARCHITECTURES = {
     "DogCNN-v1": (32, 64, 128),
     "DogCNN-v2": (32, 64, 128, 192),
+    "DogCNN-v3": (32, 64, 128, 256, 256),
 }
 
 
@@ -228,8 +229,6 @@ def train(args):
         transforms.RandomHorizontalFlip(),
         transforms.ColorJitter(brightness=0.15, contrast=0.15, saturation=0.15),
         transforms.ToTensor(), transforms.Normalize(MEAN, STD),
-        transforms.RandomErasing(p=0.25, scale=(0.02, 0.12),
-                                 ratio=(0.5, 2.0), value=0),
     ])
     val_transform = transforms.Compose([
         transforms.ToTensor(), transforms.Normalize(MEAN, STD),
@@ -250,7 +249,7 @@ def train(args):
                   train_images=len(train_data), validation_images=len(val_data),
                   architecture=args.architecture, class_names=list(CLASS_NAMES),
                   mean=list(MEAN), std=list(STD), split="provided split",
-                  augmentation="random resized crop scale 0.85–1.0, horizontal flip, color jitter 0.15, random erasing p=0.25 scale=0.02–0.12 ratio=0.5–2.0 value=0 after normalization",
+                  augmentation="random resized crop scale 0.85–1.0, horizontal flip, color jitter 0.15",
                   optimizer="AdamW", scheduler="cosine", label_smoothing=0.1,
                   determinism="fixed seeds; deterministic algorithms warn on unsupported operations")
     (output / "config.json").write_text(json.dumps(config, indent=2) + "\n")
@@ -336,7 +335,8 @@ def main():
     parser.add_argument("--threads", type=int, default=4)
     parser.add_argument("--device", choices=("auto", "cpu", "cuda", "mps"), default="auto")
     parser.add_argument("--architecture", choices=tuple(ARCHITECTURES), default="DogCNN-v1",
-                        help="v1: six convolutions; v2: eight convolutions with a fourth pooling stage")
+                        help="v1: six convolutions; v2: eight convolutions; "
+                             "v3: ten convolutions, five pooling stages, wider final blocks")
     parser.add_argument("--init-checkpoint", type=Path,
                         help="Continue from saved weights with a fresh optimizer and schedule; "
                              "retain initial validation as the score to beat")

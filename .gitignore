@@ -6,7 +6,7 @@ runs/
 submission/
 Group*_Assignment.zip
 
-# Data, reference material, and binary weights stay outside Git.
+# Data, reference material, and ordinary run weights stay outside Git.
 imagewoof_train/
 imagewoof_val/
 lectures/
@@ -15,3 +15,6 @@ lectures/
 *.pdf
 .cache/
 setup/
+
+# Explicitly preserved best-model bundle includes its checkpoint.
+!saved_models/v2_crop085_7892/model.pth

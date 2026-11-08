@@ -4,11 +4,13 @@ This baseline implements the six-convolution model discussed in the course workf
 
 ## Current status
 
+- **DogCNN-v3 prepared, not trained:** ten convolutions; channels 32, 64, 128, 256, 256; successful gentler-crop augmentation, no random erasing. See [plan and checks](experiments/depth_10conv.md).
+
 - **Random erasing completed:** best **78.22% (1,013/1,295), epoch 41**; public prediction and CPU portability checks passed. Lower than 78.92%, so retain the gentler-crop checkpoint. No training is active. See [results](experiments/random_erasing.md).
 
 - **Gentler crop completed:** fresh CUDA v2 training reached **78.92% (1,022/1,295), epoch 47**, verified through public prediction. The checkpoint and exact source are saved locally in `runs/gentler_crop_085/`. See [experiment report](experiments/gentler_crop.md).
 
-- **Saved best model:** [best_model/](best_model/README.md) contains the historical 78.15% weights, matching code, dependencies, provenance, and file hashes. [Process report](experiments/PROCESS.md) records the full workflow and results. Disposable smoke runs were removed after archiving their JSON records in `experiments/smoke_checks.json`; full experiment records and both original trained checkpoints remain.
+- **Saved best model:** [78.92% bundle](saved_models/v2_crop085_7892/README.md) includes exact source and weights, committed in Git under tag `best-v2-7892-bundle`. [best_model/](best_model/README.md) remains the historical 78.15% bundle. [Process report](experiments/PROCESS.md) records the full workflow and results. Disposable smoke runs were removed after archiving their JSON records in `experiments/smoke_checks.json`; full experiment records and both original trained checkpoints remain.
 
 - **Continuation completed:** `runs/depth_8conv_continue` stopped after seven extra MPS epochs (5.02 minutes) without beating 78.15%. Best extra-epoch validation was 77.22%; the run retained the original best weights. It used fresh AdamW at 0.0001, cosine decay, and patience seven. See [continuation settings](experiments/continuation.md). `--init-checkpoint` loads weights with a fresh optimizer and schedule; it does not restore optimizer state.
 
@@ -21,7 +23,7 @@ This baseline implements the six-convolution model discussed in the course workf
 | --- | --- |
 | `best_model/` | Selected weights, matching inference code, dependencies, and provenance |
 | `experiments/PROCESS.md` | Saved training process, results, verification, and cleanup record |
-| `solution.py` | Both CNN architectures, training CLI, checkpoint loading, and grader prediction interface |
+| `solution.py` | Three CNN architectures, training CLI, checkpoint loading, and grader prediction interface |
 | `verify_pipeline.py` | Dataset label checks and CPU inference checks, including a fresh isolated process |
 | `train_mps.command` | Terminal launcher for the default **v1** architecture; does not select v2 |
 | `experiments/depth_8conv.md` | Prepared v2 design, checks, launch command, and evaluation plan |
@@ -42,7 +44,7 @@ Three blocks each contain two `3×3 Conv → BatchNorm → ReLU` sequences follo
 
 Both convolutions in each block produce the listed number of channels. Adding the fourth block increases depth and capacity together; the completed run improved best validation accuracy from 70.50% to 78.15%.
 
-Images remain RGB at 128 × 128. The current training code uses random resized crops (scale 0.85–1.0; earlier MPS runs used 0.7–1.0), horizontal flips, mild color jitter, and random erasing (25% probability, 2–12% area, after normalization). Validation uses no augmentation. Both paths scale pixels to `[0, 1]` and normalize with mean and standard deviation `(0.5, 0.5, 0.5)`, yielding `[-1, 1]`. These are fixed constants, not statistics from external data.
+Images remain RGB at 128 × 128. The current training code uses random resized crops (scale 0.85–1.0; earlier MPS runs used 0.7–1.0), horizontal flips, mild color jitter, with no random erasing (the erasing experiment did not improve validation). Validation uses no augmentation. Both paths scale pixels to `[0, 1]` and normalize with mean and standard deviation `(0.5, 0.5, 0.5)`, yielding `[-1, 1]`. These are fixed constants, not statistics from external data.
 
 The provided split stays intact. The default seed is 42. Defaults are AdamW, learning rate 0.001, weight decay 0.0001, label smoothing 0.1, a cosine learning-rate schedule, at most 50 epochs, and early stopping after ten epochs without improved validation accuracy. These are manually chosen baseline settings, not tuned results.
 
@@ -119,6 +121,8 @@ After actual training and validation, stage `solution.py` with the chosen run's 
 
 ## Local version history
 
-Git stores code and small experiment records; datasets and binary weights stay outside Git. Completed checkpoints remain in their local `runs/` folders and are identified by SHA-256 in `experiments/model_registry.json`. Git alone does not back up the weights.
+Git stores code and small experiment records; datasets and ordinary run weights stay outside Git. The explicitly saved best bundle in `saved_models/v2_crop085_7892/` includes its binary weights in Git. Completed checkpoints remain in their local `runs/` folders and are identified by SHA-256 in `experiments/model_registry.json`. Git backs up the named best bundle; other run weights remain outside Git.
 
 `git log --oneline` shows progress. Tag `v2-crop085-78.92` preserves the completed gentler-crop code before random erasing. Use `git show v2-crop085-78.92:solution.py` to inspect it without replacing current files. The first commit also preserves earlier run metadata and the original 78.15% bundle source; earlier commits were not reconstructed.
+
+DogCNN-v3 adds a fifth block and widens block four: channels `32, 64, 128, 256, 256`, ten convolutions and five pooling stages. Select `--architecture DogCNN-v3`; default remains v1. Current code restores augmentation from the winning gentler-crop run. V3 has no trained accuracy yet.

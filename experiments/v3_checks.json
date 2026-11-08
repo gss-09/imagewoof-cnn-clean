@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "architecture": "DogCNN-v3",
+  "parameters": 2356458,
+  "convolutions": 10,
+  "pooling_spatial_sizes": [
+    64,
+    32,
+    16,
+    8,
+    4
+  ],
+  "checks": [
+    "finite logits (2,10)",
+    "untrained checkpoint round-trip predictions",
+    "untrained v3 isolated CPU inference verifier",
+    "best trained v2 backward compatibility verifier"
+  ],
+  "training_started": false
+}
