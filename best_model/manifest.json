@@ -1,0 +1,15 @@
+{
+  "source_checkpoint": "runs/depth_8conv/model.pth",
+  "architecture": "DogCNN-v2",
+  "best_epoch": 45,
+  "validation_correct": 1012,
+  "validation_images": 1295,
+  "validation_accuracy": 0.7814671814671814,
+  "files_sha256": {
+    "config.json": "ada7ae8c881beef233f02832bceab187082da7ec39cda68d030c6abaddbdcd8d",
+    "model.pth": "b037330d182d3e74b0a430b9d61a497a7512a1c0687fe9860f49abc7a7f48fe9",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "3626fb0476c2f45b8758fd0f7307273617fe73b7fe69edbc805f407b6b973d11",
+    "summary.json": "fb57e87188355c1cbb84e0e1435b91be983172113f520a4c14ac043c7a118aa2"
+  }
+}

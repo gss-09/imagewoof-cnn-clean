@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+runs/
+submission/
+Group*_Assignment.zip
+
+# Data, reference material, and binary weights stay outside Git.
+imagewoof_train/
+imagewoof_val/
+lectures/
+*.pth
+*.pptx
+*.pdf
+.cache/
+setup/

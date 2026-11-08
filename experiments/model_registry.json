@@ -1,0 +1,72 @@
+[
+  {
+    "run": "runs/baseline_full",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 46,
+      "validation_images": 1295,
+      "validation_accuracy": 0.705019305019305,
+      "public_predict_accuracy": 0.705019305019305,
+      "per_class_accuracy": {
+        "shih_tzu": 0.7037037037037037,
+        "rhodesian_ridgeback": 0.8074074074074075,
+        "beagle": 0.725925925925926,
+        "english_foxhound": 0.325,
+        "border_terrier": 0.7185185185185186,
+        "australian_terrier": 0.6444444444444445,
+        "golden_retriever": 0.5703703703703704,
+        "old_english_sheepdog": 0.7407407407407407,
+        "samoyed": 0.8740740740740741,
+        "dingo": 0.7851851851851852
+      }
+    },
+    "checkpoint_sha256": "7072e165573248455cb6de6842647fdbdc8bcff3f380243e7ece12a7972a1e9b"
+  },
+  {
+    "run": "runs/depth_8conv",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 45,
+      "validation_images": 1295,
+      "validation_accuracy": 0.7814671814671814,
+      "public_predict_accuracy": 0.7814671814671814,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8,
+        "rhodesian_ridgeback": 0.8,
+        "beagle": 0.8074074074074075,
+        "english_foxhound": 0.4125,
+        "border_terrier": 0.8222222222222222,
+        "australian_terrier": 0.7925925925925926,
+        "golden_retriever": 0.7481481481481481,
+        "old_english_sheepdog": 0.8444444444444444,
+        "samoyed": 0.8814814814814815,
+        "dingo": 0.7555555555555555
+      }
+    },
+    "checkpoint_sha256": "b037330d182d3e74b0a430b9d61a497a7512a1c0687fe9860f49abc7a7f48fe9"
+  },
+  {
+    "run": "runs/gentler_crop_085",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 47,
+      "validation_images": 1295,
+      "validation_accuracy": 0.7891891891891892,
+      "public_predict_accuracy": 0.7891891891891892,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8074074074074075,
+        "rhodesian_ridgeback": 0.8296296296296296,
+        "beagle": 0.762962962962963,
+        "english_foxhound": 0.5375,
+        "border_terrier": 0.8148148148148148,
+        "australian_terrier": 0.7777777777777778,
+        "golden_retriever": 0.762962962962963,
+        "old_english_sheepdog": 0.8222222222222222,
+        "samoyed": 0.8962962962962963,
+        "dingo": 0.7777777777777778
+      }
+    },
+    "checkpoint_sha256": "2af4874bc5d4c955e3861df67bedbed8ea6f2fad0a186db3e3d8f2dcf34a1b98",
+    "source_sha256": "294d840aaea7a66f50ac8a82064217a33f156ceb94924bd81fdc084f586c5795"
+  }
+]

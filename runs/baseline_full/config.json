@@ -1,0 +1,46 @@
+{
+  "data_root": "/Users/shriyanssaiganipisetti/Desktop/Intro to ai assignment 2",
+  "output": "runs/baseline_full",
+  "epochs": 50,
+  "batch_size": 32,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "patience": 10,
+  "seed": 42,
+  "workers": 0,
+  "threads": 4,
+  "device": "mps",
+  "smoke": false,
+  "torch_version": "2.9.1",
+  "train_images": 9065,
+  "validation_images": 1295,
+  "architecture": "DogCNN-v1",
+  "class_names": [
+    "shih_tzu",
+    "rhodesian_ridgeback",
+    "beagle",
+    "english_foxhound",
+    "border_terrier",
+    "australian_terrier",
+    "golden_retriever",
+    "old_english_sheepdog",
+    "samoyed",
+    "dingo"
+  ],
+  "mean": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "std": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "split": "provided split",
+  "augmentation": "random resized crop scale 0.7\u20131.0, horizontal flip, color jitter 0.15",
+  "optimizer": "AdamW",
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "determinism": "fixed seeds; deterministic algorithms warn on unsupported operations"
+}

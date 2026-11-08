@@ -1,0 +1,43 @@
+Hi everyone,
+
+A few questions about HW2 have come up, so here are the answers for the whole class.
+
+1. What kind of hyperparameter tuning is not allowed?
+You are free to tune hyperparameters yourself (learning rate, batch size, optimizer, number of layers, augmentation and so on). What is not allowed is using a hyperparameter optimization or neural architecture search tool or library, such as Optuna, Ray Tune, Keras Tuner, or NAS methods like DARTS.
+
+2. Can we combine the 70% and 10% data for cross-validation or a different split (e.g., 80/20)?
+Yes. You may combine the training and validation sets and split them however you like, including for cross-validation. Just make sure you do not use any external data.
+
+3. When is the assignment due?
+Sunday, November 8, 2026, at 11:59 pm, as shown on Canvas. The instructions will be updated to match.
+
+4. How does the live evaluation work?
+- After the deadline, one member of each group books a time with me within two weeks (November 9–22). You can reach me by email or Teams; please include your group number and a few times that work for you.
+- The evaluation takes place in person in my office, PGH 370, where I will give you the test set and you can test with your model.
+- No slides or statistical analysis are needed. Just be ready to briefly explain your architecture, data augmentation and training choices.
+
+If you have other questions, please let me know.
+
+Best,
+
+Zheng 
+
+****
+
+Dear all,
+
+Beyond the required files in the instruction, I would like each group to submit a brief individual contribution report (pdf file) describing the contributions of all group members. The report should include:
+
+Each member's primary responsibilities and specific contributions to the assignment.
+
+An estimated percentage of each member's contribution to the overall assignment, with percentages totaling 100%.
+
+A brief explanation of how the group collaborated.
+
+All group members should review and acknowledge the report.
+
+The contribution report will be used to assess individual participation and identify potential imbalances in group contributions. Contribution percentages will not be used as direct grading weights. However, substantial differences in individual participation may result in individual grade adjustments when supported by appropriate evidence.
+
+Thank you,
+
+Sen Lin
