@@ -4,7 +4,8 @@ Prepared after the evening experiment session, November 7, 2026. This report cov
 
 ## 1. Current state: read this first
 
-- **Update November 8, 2026: new best 86.1004% (1,115/1,295)**, same DogCNN-v4 recipe but SGD Nesterov (momentum 0.9, lr 0.05, wd 0.0005, 5 warm-up epochs, cosine), EMA best epoch 89. Bundle **`saved_models/v4_sgd005_8610/`**, tag **`v4-sgd005-86.10`**. Flip averaging measured separately 86.41%; `predict` still single view. SGD lr 0.1 gave 85.64%. See `experiments/round4/README.md`. No training active.
+- **Update November 8, 2026 (round 5): new best 86.7181% (1,123/1,295)**, the SGD recipe with weight decay 0.001, EMA best epoch 123. Bundle **`saved_models/v4_sgd_wd001_8672/`**, tag **`v4-sgdwd001-86.72`**. Flip 86.49% (no help). 100-epoch schedule gave 84.63%. See `experiments/round5/README.md`. No training active.
+- Earlier November 8 update: 86.1004% (1,115/1,295)**, same DogCNN-v4 recipe but SGD Nesterov (momentum 0.9, lr 0.05, wd 0.0005, 5 warm-up epochs, cosine), EMA best epoch 89. Bundle **`saved_models/v4_sgd005_8610/`**, tag **`v4-sgd005-86.10`**. Flip averaging measured separately 86.41%; `predict` still single view. SGD lr 0.1 gave 85.64%. See `experiments/round4/README.md`. No training active.
 - **Update November 7, 2026 (late): new best 83.4749% (1,081/1,295)**, DogCNN-v4, 150 epochs, crops 0.35–1.0, EMA 0.999 weights, best epoch 83. Bundle **`saved_models/v4_long150_8347/`**, tag **`v4-long150-83.47`**. Flip averaging measured separately 84.40%; `predict` still single view. See `experiments/round1/README.md`, `experiments/round2/README.md` and `experiments/round3/README.md` (round 3: no new best; seed 43 gave 82.93%, stronger aug 82.63%). Round runs: `r1_v3_control` 80.77%, `r1_v4_wide` 81.39%, `r1_v3_long150` 82.70%, `r2_v4_long150` 83.47%. No training active. The bullets below describe the earlier state (80.93% best) and are kept for history.
 
 - Best measured validation result: **80.9266409% (1,048/1,295)**, DogCNN-v3, epoch45 of a 50-epoch run with AdamW weight decay0.001.
@@ -110,8 +111,10 @@ All full runs used seed42 and the supplied split. Full fresh runs used AdamW, ba
 | `runs/r2_v4_long150` | v4, 150 epochs, crop 0.35, EMA | 150 | 83 (EMA) | 83.4749%, 1081/1295 |
 | `runs/r3_v4_aug_strong` | v4, 150 epochs, crop 0.25 + rotation ±10°, EMA | 150 | 88 (EMA) | 82.6255%, 1070/1295 |
 | `runs/r3_v4_seed43` | as r2_v4_long150, seed 43 | 150 | 53 (EMA) | 82.9344%, 1074/1295 |
-| `runs/r4_v4_sgd_lr005` | as r2_v4_long150 but SGD Nesterov lr 0.05, wd 0.0005, warm-up 5 | 150 | 89 (EMA) | **86.1004%, 1115/1295** |
+| `runs/r4_v4_sgd_lr005` | as r2_v4_long150 but SGD Nesterov lr 0.05, wd 0.0005, warm-up 5 | 150 | 89 (EMA) | 86.1004%, 1115/1295 |
 | `runs/r4_v4_sgd_lr01` | same, SGD lr 0.1 | 150 | 118 (EMA) | 85.6371%, 1109/1295 |
+| `runs/r5_v4_sgd_ep100` | as r4_v4_sgd_lr005, 100 epochs | 100 | 53 (EMA) | 84.6332%, 1096/1295 |
+| `runs/r5_v4_sgd_wd001` | as r4_v4_sgd_lr005, wd 0.001 | 150 | 123 (EMA) | **86.7181%, 1123/1295** (CPU; accelerator predict 1122) |
 
 Interpretation:
 

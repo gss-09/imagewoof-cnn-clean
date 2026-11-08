@@ -420,5 +420,57 @@
     "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
     "flip_average_correct_measured_separately": 1110,
     "note": "Round 4: same with SGD lr 0.1; EMA best epoch 118, 85.64% (1,109); raw best 85.33% @146. Not bundled."
+  },
+  {
+    "run": "runs/r5_v4_sgd_ep100",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 53,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8463320463320463,
+      "public_predict_accuracy": 0.8463320463320463,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8592592592592593,
+        "rhodesian_ridgeback": 0.8740740740740741,
+        "beagle": 0.837037037037037,
+        "english_foxhound": 0.575,
+        "border_terrier": 0.837037037037037,
+        "australian_terrier": 0.837037037037037,
+        "golden_retriever": 0.8222222222222222,
+        "old_english_sheepdog": 0.8888888888888888,
+        "samoyed": 0.9481481481481482,
+        "dingo": 0.8740740740740741
+      }
+    },
+    "checkpoint_sha256": "ef9c3d3191f885a23358e06af930f90e36a1c5e1d399cf21a6b3be2940024472",
+    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+    "flip_average_correct_measured_separately": null,
+    "note": "Round 5: SGD best recipe, 100 epochs; EMA best epoch 53, 84.63% (1,096); train 99.4% by epoch 90. Shorter schedule memorizes sooner. Not bundled."
+  },
+  {
+    "run": "runs/r5_v4_sgd_wd001",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 123,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8671814671814672,
+      "public_predict_accuracy": 0.8664092664092664,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8814814814814815,
+        "rhodesian_ridgeback": 0.8888888888888888,
+        "beagle": 0.8666666666666667,
+        "english_foxhound": 0.5625,
+        "border_terrier": 0.8814814814814815,
+        "australian_terrier": 0.8444444444444444,
+        "golden_retriever": 0.8666666666666667,
+        "old_english_sheepdog": 0.9333333333333333,
+        "samoyed": 0.9555555555555556,
+        "dingo": 0.8666666666666667
+      }
+    },
+    "checkpoint_sha256": "869dad6418f0697b75d69f16d971d6ee6b931daf557dbcfe0b58b1d64e5a15d5",
+    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+    "flip_average_correct_measured_separately": 1120,
+    "note": "Round 5: SGD best recipe with wd 0.001; EMA best epoch 123, 86.72% (1,123) CPU / 86.64% (1,122) accelerator predict. New best; bundled in saved_models/v4_sgd_wd001_8672."
   }
 ]

@@ -1,0 +1,20 @@
+{
+  "source_run": "runs/r5_v4_sgd_wd001",
+  "architecture": "DogCNN-v4",
+  "validation_correct": 1123,
+  "validation_images": 1295,
+  "best_epoch": 123,
+  "validation_accuracy": 0.8671814671814672,
+  "public_predict_accuracy_accelerator": 0.8664092664092664,
+  "optimizer": "SGD Nesterov momentum 0.9, lr 0.05, wd 0.001, 5 warm-up epochs then cosine over 150",
+  "weight_average": "EMA 0.999 (saved weights are the averaged copy; plain sequential CNN)",
+  "seed": 42,
+  "flip_average_validation_accuracy_measured_separately": 0.8648648648648649,
+  "files_sha256": {
+    "config.json": "af147c9d68b70127e256fc3eb00ef8294d9768034d2bbe317407bde451fd5ad0",
+    "model.pth": "869dad6418f0697b75d69f16d971d6ee6b931daf557dbcfe0b58b1d64e5a15d5",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "294330b659d048f6db39d49bf1dce25a09d17e49fe091defb94aa7dabb67a2ee",
+    "summary.json": "df14cc1772c956196261d5b4f4f1d39663b2141092fa6480e16c727243acdbd5"
+  }
+}
