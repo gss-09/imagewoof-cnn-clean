@@ -43,3 +43,7 @@ No training remains active. The model bundle has not been submitted; group infor
 ## Gentler crop completed
 
 Root `solution.py` now raises the minimum crop area from 0.7 to 0.85. The saved best bundle retains its original code and weights. See [gentler crop experiment](gentler_crop.md); the fresh v2 CUDA run completed 50 epochs in `runs/gentler_crop_085`. Best epoch 47 reached 78.9189% (1,022/1,295), reproduced through public prediction. This is the highest measured result; the historical `best_model/` bundle remains intact. Full run records, weights, and exact training source have been copied to the laptop.
+
+## Next experiment and version history
+
+Random erasing is prepared, not launched; see [settings](random_erasing.md). Local Git tag `v2-crop085-78.92` preserves the completed CUDA model code. `model_registry.json` records checkpoint hashes. Weights remain outside Git in local run folders.

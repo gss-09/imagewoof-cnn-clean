@@ -228,6 +228,8 @@ def train(args):
         transforms.RandomHorizontalFlip(),
         transforms.ColorJitter(brightness=0.15, contrast=0.15, saturation=0.15),
         transforms.ToTensor(), transforms.Normalize(MEAN, STD),
+        transforms.RandomErasing(p=0.25, scale=(0.02, 0.12),
+                                 ratio=(0.5, 2.0), value=0),
     ])
     val_transform = transforms.Compose([
         transforms.ToTensor(), transforms.Normalize(MEAN, STD),
@@ -248,7 +250,7 @@ def train(args):
                   train_images=len(train_data), validation_images=len(val_data),
                   architecture=args.architecture, class_names=list(CLASS_NAMES),
                   mean=list(MEAN), std=list(STD), split="provided split",
-                  augmentation="random resized crop scale 0.85–1.0, horizontal flip, color jitter 0.15",
+                  augmentation="random resized crop scale 0.85–1.0, horizontal flip, color jitter 0.15, random erasing p=0.25 scale=0.02–0.12 ratio=0.5–2.0 value=0 after normalization",
                   optimizer="AdamW", scheduler="cosine", label_smoothing=0.1,
                   determinism="fixed seeds; deterministic algorithms warn on unsupported operations")
     (output / "config.json").write_text(json.dumps(config, indent=2) + "\n")

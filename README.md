@@ -4,6 +4,8 @@ This baseline implements the six-convolution model discussed in the course workf
 
 ## Current status
 
+- **Next experiment prepared:** training-only random erasing, probability 25%, area 2–12%; see [settings](experiments/random_erasing.md). Not launched.
+
 - **Gentler crop completed:** fresh CUDA v2 training reached **78.92% (1,022/1,295), epoch 47**, verified through public prediction. The checkpoint and exact source are saved locally in `runs/gentler_crop_085/`. See [experiment report](experiments/gentler_crop.md).
 
 - **Saved best model:** [best_model/](best_model/README.md) contains the historical 78.15% weights, matching code, dependencies, provenance, and file hashes. [Process report](experiments/PROCESS.md) records the full workflow and results. Disposable smoke runs were removed after archiving their JSON records in `experiments/smoke_checks.json`; full experiment records and both original trained checkpoints remain.
@@ -40,7 +42,7 @@ Three blocks each contain two `3×3 Conv → BatchNorm → ReLU` sequences follo
 
 Both convolutions in each block produce the listed number of channels. Adding the fourth block increases depth and capacity together; the completed run improved best validation accuracy from 70.50% to 78.15%.
 
-Images remain RGB at 128 × 128. The current training code uses random resized crops (scale 0.85–1.0; earlier MPS runs used 0.7–1.0), horizontal flips, and mild color jitter. Validation uses no augmentation. Both paths scale pixels to `[0, 1]` and normalize with mean and standard deviation `(0.5, 0.5, 0.5)`, yielding `[-1, 1]`. These are fixed constants, not statistics from external data.
+Images remain RGB at 128 × 128. The current training code uses random resized crops (scale 0.85–1.0; earlier MPS runs used 0.7–1.0), horizontal flips, mild color jitter, and random erasing (25% probability, 2–12% area, after normalization). Validation uses no augmentation. Both paths scale pixels to `[0, 1]` and normalize with mean and standard deviation `(0.5, 0.5, 0.5)`, yielding `[-1, 1]`. These are fixed constants, not statistics from external data.
 
 The provided split stays intact. The default seed is 42. Defaults are AdamW, learning rate 0.001, weight decay 0.0001, label smoothing 0.1, a cosine learning-rate schedule, at most 50 epochs, and early stopping after ten epochs without improved validation accuracy. These are manually chosen baseline settings, not tuned results.
 
@@ -114,3 +116,9 @@ The script checks public-interface accuracy against the best checkpoint on the e
 `solution.py` is self-contained for inference. Importing it does not train or load the dataset. `load_model(path="model.pth")` restores the checkpoint on CPU in evaluation mode. `predict(model, images)` accepts RGB `uint8` NumPy arrays of shape `(N, 128, 128, 3)` and returns NumPy `int64` IDs shaped `(N,)`. It normalizes internally and processes at most 32 images per internal batch. To use an accelerator, move the loaded model to that device before calling `predict`.
 
 After actual training and validation, stage `solution.py` with the chosen run's `model.pth` for `GroupX_Assignment.zip`. Do not substitute smoke weights. The contribution PDF, group number, names, IDs, and member acknowledgments still require the group's real information. No submission archive is created by these commands.
+
+## Local version history
+
+Git stores code and small experiment records; datasets and binary weights stay outside Git. Completed checkpoints remain in their local `runs/` folders and are identified by SHA-256 in `experiments/model_registry.json`. Git alone does not back up the weights.
+
+`git log --oneline` shows progress. Tag `v2-crop085-78.92` preserves the completed gentler-crop code before random erasing. Use `git show v2-crop085-78.92:solution.py` to inspect it without replacing current files. The first commit also preserves earlier run metadata and the original 78.15% bundle source; earlier commits were not reconstructed.
