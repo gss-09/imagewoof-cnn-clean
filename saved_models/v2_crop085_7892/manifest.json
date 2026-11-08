@@ -1,0 +1,15 @@
+{
+  "source_run": "runs/gentler_crop_085",
+  "architecture": "DogCNN-v2",
+  "validation_correct": 1022,
+  "validation_images": 1295,
+  "best_epoch": 47,
+  "validation_accuracy": 0.7891891891891892,
+  "files_sha256": {
+    "config.json": "8932e2389b932accca6b64a80e920f922c37e335dfb20e1e6db72811fd23da5b",
+    "model.pth": "2af4874bc5d4c955e3861df67bedbed8ea6f2fad0a186db3e3d8f2dcf34a1b98",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "918a4751134cf773797df39ce004255dbbea1b19626c824cbc37d2d51acf5eaa",
+    "summary.json": "e57cf1c28f8dcff4279902b56ba103b7803856533a2e53b9fd8b0b2df939489d"
+  }
+}
