@@ -255,6 +255,10 @@ def train(args):
         raise ValueError("--ema-decay must be in [0, 1); 0 disables weight averaging")
     if not 0 <= args.warmup_epochs < args.epochs:
         raise ValueError("--warmup-epochs must be nonnegative and smaller than --epochs")
+    if args.stop_epoch is not None and not 1 <= args.stop_epoch <= args.epochs:
+        raise ValueError("--stop-epoch must be between 1 and --epochs")
+    if args.train_on_val and args.init_checkpoint is not None:
+        raise ValueError("--train-on-val starts from scratch; do not combine with --init-checkpoint")
     random.seed(args.seed)
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -291,6 +295,10 @@ def train(args):
                             16 if args.smoke else None, args.seed)
     val_data = DogDataset(args.data_root / "imagewoof_val/val", val_transform,
                           8 if args.smoke else None, args.seed)
+    if args.train_on_val:
+        # Final retrain: validation images join training with training augmentation.
+        # Validation scores below are then measured on training images (monitoring only).
+        train_data.samples += val_data.samples
     generator = torch.Generator().manual_seed(args.seed)
     loader_options = dict(batch_size=args.batch_size, num_workers=args.workers,
                           worker_init_fn=seed_worker, pin_memory=device.type == "cuda")
@@ -302,7 +310,9 @@ def train(args):
     config.update(device=str(device), torch_version=str(torch.__version__),
                   train_images=len(train_data), validation_images=len(val_data),
                   architecture=args.architecture, class_names=list(CLASS_NAMES),
-                  mean=list(MEAN), std=list(STD), split="provided split",
+                  mean=list(MEAN), std=list(STD),
+                  split=("train + validation combined; validation scores are on training images"
+                         if args.train_on_val else "provided split"),
                   augmentation=f"random resized crop scale {args.crop_min:g}–1.0, horizontal flip, "
                                "color jitter 0.15"
                                + (f", rotation ±{args.rotate:g}° before crop" if args.rotate else ""),
@@ -388,11 +398,14 @@ def train(args):
         print(f"Epoch {epoch}/{epochs}: loss={training['loss']:.4f}, "
               f"train={training['accuracy']:.2%}, val={validation['accuracy']:.2%}{message}, "
               f"{row['seconds']:.1f}s", flush=True)
-        if validation["accuracy"] > best_accuracy:
+        # With --train-on-val there is no held-out data: keep the latest epoch instead.
+        if validation["accuracy"] > best_accuracy or args.train_on_val:
             best_accuracy, best_epoch = validation["accuracy"], epoch
             best_validation = validation
             save_best(epoch)
         scheduler.step()
+        if args.stop_epoch is not None and epoch >= args.stop_epoch:
+            break  # schedule still spans --epochs; training ends early at a fixed epoch
         if epoch - best_epoch >= args.patience:
             break
 
@@ -443,6 +456,11 @@ def main():
     parser.add_argument("--init-checkpoint", type=Path,
                         help="Continue from saved weights with a fresh optimizer and schedule; "
                              "retain initial validation as the score to beat")
+    parser.add_argument("--train-on-val", action="store_true",
+                        help="Final retrain: add validation images to training and save the last "
+                             "epoch (no held-out selection)")
+    parser.add_argument("--stop-epoch", type=int,
+                        help="End training after this epoch while the schedule still spans --epochs")
     parser.add_argument("--smoke", action="store_true", help="At most 2 epochs; 160 train / 80 val images")
     train(parser.parse_args())
 
