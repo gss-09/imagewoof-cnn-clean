@@ -522,5 +522,30 @@
     "checkpoint_sha256": "508cf0ac9e688a2292b86d8945cee2370defa5b78a809fa96f82ab57e5bfe6e3",
     "source_sha256": "327e43fb9d0f58a9a0d511074a9081953df6a3ab6574df3d295d0504e4ac2872",
     "note": "Round 6: 86.72% recipe trained on train+val (10,360 images), fixed stop at epoch 125 of a 150-epoch schedule; 'validation' scores are on training images (99.92%), not a held-out measure. CPU verifier passed. Candidate final model; not selected."
+  },
+  {
+    "run": "runs/r7_v4_resplit7030",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 102,
+      "validation_images": 3109,
+      "validation_accuracy": 0.8391765841106466,
+      "public_predict_accuracy": 0.8391765841106466,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8364197530864198,
+        "rhodesian_ridgeback": 0.8641975308641975,
+        "beagle": 0.8117283950617284,
+        "english_foxhound": 0.6321243523316062,
+        "border_terrier": 0.8796296296296297,
+        "australian_terrier": 0.8179012345679012,
+        "golden_retriever": 0.8055555555555556,
+        "old_english_sheepdog": 0.8395061728395061,
+        "samoyed": 0.9382716049382716,
+        "dingo": 0.8827160493827161
+      }
+    },
+    "checkpoint_sha256": "c41a4e29c4aab75c808884ad6b4c22c3fc16c85959715b1ef4528906bcccaa4e",
+    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+    "note": "Round 7: 86.72% recipe on seeded stratified 70/30 re-split of pooled train+val (7,251 train / 3,109 val). EMA best epoch 102: 83.92% (2,609/3,109); flip 84.34% at that epoch. Not comparable to supplied-split scores; not a submission candidate."
   }
 ]
