@@ -1,0 +1,47 @@
+{
+  "data_root": ".",
+  "output": "runs/random_erasing_025",
+  "epochs": 50,
+  "batch_size": 32,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "patience": 10,
+  "seed": 42,
+  "workers": 0,
+  "threads": 4,
+  "device": "cuda",
+  "architecture": "DogCNN-v2",
+  "init_checkpoint": null,
+  "smoke": false,
+  "torch_version": "2.9.1+cu128",
+  "train_images": 9065,
+  "validation_images": 1295,
+  "class_names": [
+    "shih_tzu",
+    "rhodesian_ridgeback",
+    "beagle",
+    "english_foxhound",
+    "border_terrier",
+    "australian_terrier",
+    "golden_retriever",
+    "old_english_sheepdog",
+    "samoyed",
+    "dingo"
+  ],
+  "mean": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "std": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "split": "provided split",
+  "augmentation": "random resized crop scale 0.85\u20131.0, horizontal flip, color jitter 0.15, random erasing p=0.25 scale=0.02\u20130.12 ratio=0.5\u20132.0 value=0 after normalization",
+  "optimizer": "AdamW",
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "determinism": "fixed seeds; deterministic algorithms warn on unsupported operations"
+}

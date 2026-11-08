@@ -68,5 +68,29 @@
     },
     "checkpoint_sha256": "2af4874bc5d4c955e3861df67bedbed8ea6f2fad0a186db3e3d8f2dcf34a1b98",
     "source_sha256": "294d840aaea7a66f50ac8a82064217a33f156ceb94924bd81fdc084f586c5795"
+  },
+  {
+    "run": "runs/random_erasing_025",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 41,
+      "validation_images": 1295,
+      "validation_accuracy": 0.7822393822393823,
+      "public_predict_accuracy": 0.7822393822393823,
+      "per_class_accuracy": {
+        "shih_tzu": 0.762962962962963,
+        "rhodesian_ridgeback": 0.8222222222222222,
+        "beagle": 0.725925925925926,
+        "english_foxhound": 0.55,
+        "border_terrier": 0.8518518518518519,
+        "australian_terrier": 0.8148148148148148,
+        "golden_retriever": 0.7481481481481481,
+        "old_english_sheepdog": 0.725925925925926,
+        "samoyed": 0.9259259259259259,
+        "dingo": 0.8
+      }
+    },
+    "checkpoint_sha256": "efaf21f739408f9b2163e037072c1ef17b54e0e8c8ae9fd5c4d00b0b7d6290e4",
+    "source_sha256": "baa0404e433d4efd1a5f4141f0833219d73997732c2cbfed8b1acdbd3c31529a"
   }
 ]

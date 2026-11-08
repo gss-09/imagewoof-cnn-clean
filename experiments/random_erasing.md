@@ -1,4 +1,4 @@
-# Random erasing experiment (prepared, not launched)
+# Random erasing experiment (completed)
 
 Hypothesis: hiding small patches during training may reduce reliance on individual features and improve generalization. No accuracy improvement is assumed.
 
@@ -14,4 +14,6 @@ python -u solution.py --architecture DogCNN-v2 --device cuda --output runs/rando
 
 Do not initialize from an existing checkpoint. Preserve previous weights. Record best epoch, full validation and per-class accuracy, reproduce public prediction, then run the CPU portability verifier. Before subsequent code edits, save this run's exact `solution.py` alongside its checkpoint; copy the completed run to the laptop and update `experiments/model_registry.json`.
 
-Verification passed: evaluated the actual training/validation transform definitions, checked erasing settings and patch behavior, and confirmed validation excludes erasing. The saved 78.92% checkpoint passed `verify_pipeline.py` on CPU, including isolated-process loading and real-image preprocessing checks. No new training was launched.
+Verification passed: evaluated the actual training/validation transform definitions, checked erasing settings and patch behavior, and confirmed validation excludes erasing. The saved 78.92% checkpoint passed `verify_pipeline.py` on CPU, including isolated-process loading and real-image preprocessing checks. Training completed all 50 epochs; log `setup/random_erasing_025.log`. Epoch time totaled 17.83 minutes. Best epoch 41: **78.2239% (1,013/1,295)**, reproduced through public prediction after checkpoint reload. CPU portability verifier passed. Exact source, weights, config, history, and summary are saved locally in `runs/random_erasing_025/`; artifact hashes verified. No training remains active.
+
+This is **0.6950 percentage points lower (9 fewer correct images)** than gentler crop alone at 78.9189%. Keep `runs/gentler_crop_085/model.pth` as the strongest measured checkpoint. This single-seed experiment does not support adopting random erasing; it does not establish that random erasing is universally harmful.

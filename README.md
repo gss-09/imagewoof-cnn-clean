@@ -4,7 +4,7 @@ This baseline implements the six-convolution model discussed in the course workf
 
 ## Current status
 
-- **Next experiment prepared:** training-only random erasing, probability 25%, area 2–12%; see [settings](experiments/random_erasing.md). Not launched.
+- **Random erasing completed:** best **78.22% (1,013/1,295), epoch 41**; public prediction and CPU portability checks passed. Lower than 78.92%, so retain the gentler-crop checkpoint. No training is active. See [results](experiments/random_erasing.md).
 
 - **Gentler crop completed:** fresh CUDA v2 training reached **78.92% (1,022/1,295), epoch 47**, verified through public prediction. The checkpoint and exact source are saved locally in `runs/gentler_crop_085/`. See [experiment report](experiments/gentler_crop.md).
 

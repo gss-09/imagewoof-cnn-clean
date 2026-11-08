@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "checks": [
+    "official labels for all files",
+    "raw-pixel preprocessing parity",
+    "repeatability",
+    "single and multiple inference batches",
+    "empty batch",
+    "input validation",
+    "isolated fresh-process CPU checkpoint loading"
+  ],
+  "checkpoint_sha256_verified": true
+}

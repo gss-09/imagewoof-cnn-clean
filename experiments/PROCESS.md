@@ -46,4 +46,4 @@ Root `solution.py` now raises the minimum crop area from 0.7 to 0.85. The saved 
 
 ## Next experiment and version history
 
-Random erasing is prepared, not launched; see [settings](random_erasing.md). Local Git tag `v2-crop085-78.92` preserves the completed CUDA model code. `model_registry.json` records checkpoint hashes. Weights remain outside Git in local run folders.
+Random erasing completed 50 epochs: best 78.2239% (1,013/1,295), epoch 41; public prediction and CPU verification passed. It trails gentler crop by 9 correct images. Keep the 78.9189% checkpoint. No training remains active; see [settings](random_erasing.md). Local Git tag `v2-crop085-78.92` preserves the completed CUDA model code. `model_registry.json` records checkpoint hashes. Weights remain outside Git in local run folders.
