@@ -1,586 +1,622 @@
 [
-  {
-    "run": "runs/baseline_full",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 46,
-      "validation_images": 1295,
-      "validation_accuracy": 0.705019305019305,
-      "public_predict_accuracy": 0.705019305019305,
-      "per_class_accuracy": {
-        "shih_tzu": 0.7037037037037037,
-        "rhodesian_ridgeback": 0.8074074074074075,
-        "beagle": 0.725925925925926,
-        "english_foxhound": 0.325,
-        "border_terrier": 0.7185185185185186,
-        "australian_terrier": 0.6444444444444445,
-        "golden_retriever": 0.5703703703703704,
-        "old_english_sheepdog": 0.7407407407407407,
-        "samoyed": 0.8740740740740741,
-        "dingo": 0.7851851851851852
-      }
-    },
-    "checkpoint_sha256": "7072e165573248455cb6de6842647fdbdc8bcff3f380243e7ece12a7972a1e9b"
+ {
+  "run": "runs/baseline_full",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 46,
+   "validation_images": 1295,
+   "validation_accuracy": 0.705019305019305,
+   "public_predict_accuracy": 0.705019305019305,
+   "per_class_accuracy": {
+    "shih_tzu": 0.7037037037037037,
+    "rhodesian_ridgeback": 0.8074074074074075,
+    "beagle": 0.725925925925926,
+    "english_foxhound": 0.325,
+    "border_terrier": 0.7185185185185186,
+    "australian_terrier": 0.6444444444444445,
+    "golden_retriever": 0.5703703703703704,
+    "old_english_sheepdog": 0.7407407407407407,
+    "samoyed": 0.8740740740740741,
+    "dingo": 0.7851851851851852
+   }
   },
-  {
-    "run": "runs/depth_8conv",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 45,
-      "validation_images": 1295,
-      "validation_accuracy": 0.7814671814671814,
-      "public_predict_accuracy": 0.7814671814671814,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8,
-        "rhodesian_ridgeback": 0.8,
-        "beagle": 0.8074074074074075,
-        "english_foxhound": 0.4125,
-        "border_terrier": 0.8222222222222222,
-        "australian_terrier": 0.7925925925925926,
-        "golden_retriever": 0.7481481481481481,
-        "old_english_sheepdog": 0.8444444444444444,
-        "samoyed": 0.8814814814814815,
-        "dingo": 0.7555555555555555
-      }
-    },
-    "checkpoint_sha256": "b037330d182d3e74b0a430b9d61a497a7512a1c0687fe9860f49abc7a7f48fe9"
+  "checkpoint_sha256": "7072e165573248455cb6de6842647fdbdc8bcff3f380243e7ece12a7972a1e9b"
+ },
+ {
+  "run": "runs/depth_8conv",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 45,
+   "validation_images": 1295,
+   "validation_accuracy": 0.7814671814671814,
+   "public_predict_accuracy": 0.7814671814671814,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8,
+    "rhodesian_ridgeback": 0.8,
+    "beagle": 0.8074074074074075,
+    "english_foxhound": 0.4125,
+    "border_terrier": 0.8222222222222222,
+    "australian_terrier": 0.7925925925925926,
+    "golden_retriever": 0.7481481481481481,
+    "old_english_sheepdog": 0.8444444444444444,
+    "samoyed": 0.8814814814814815,
+    "dingo": 0.7555555555555555
+   }
   },
-  {
-    "run": "runs/gentler_crop_085",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 47,
-      "validation_images": 1295,
-      "validation_accuracy": 0.7891891891891892,
-      "public_predict_accuracy": 0.7891891891891892,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8074074074074075,
-        "rhodesian_ridgeback": 0.8296296296296296,
-        "beagle": 0.762962962962963,
-        "english_foxhound": 0.5375,
-        "border_terrier": 0.8148148148148148,
-        "australian_terrier": 0.7777777777777778,
-        "golden_retriever": 0.762962962962963,
-        "old_english_sheepdog": 0.8222222222222222,
-        "samoyed": 0.8962962962962963,
-        "dingo": 0.7777777777777778
-      }
-    },
-    "checkpoint_sha256": "2af4874bc5d4c955e3861df67bedbed8ea6f2fad0a186db3e3d8f2dcf34a1b98",
-    "source_sha256": "294d840aaea7a66f50ac8a82064217a33f156ceb94924bd81fdc084f586c5795"
+  "checkpoint_sha256": "b037330d182d3e74b0a430b9d61a497a7512a1c0687fe9860f49abc7a7f48fe9"
+ },
+ {
+  "run": "runs/gentler_crop_085",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 47,
+   "validation_images": 1295,
+   "validation_accuracy": 0.7891891891891892,
+   "public_predict_accuracy": 0.7891891891891892,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8074074074074075,
+    "rhodesian_ridgeback": 0.8296296296296296,
+    "beagle": 0.762962962962963,
+    "english_foxhound": 0.5375,
+    "border_terrier": 0.8148148148148148,
+    "australian_terrier": 0.7777777777777778,
+    "golden_retriever": 0.762962962962963,
+    "old_english_sheepdog": 0.8222222222222222,
+    "samoyed": 0.8962962962962963,
+    "dingo": 0.7777777777777778
+   }
   },
-  {
-    "run": "runs/random_erasing_025",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 41,
-      "validation_images": 1295,
-      "validation_accuracy": 0.7822393822393823,
-      "public_predict_accuracy": 0.7822393822393823,
-      "per_class_accuracy": {
-        "shih_tzu": 0.762962962962963,
-        "rhodesian_ridgeback": 0.8222222222222222,
-        "beagle": 0.725925925925926,
-        "english_foxhound": 0.55,
-        "border_terrier": 0.8518518518518519,
-        "australian_terrier": 0.8148148148148148,
-        "golden_retriever": 0.7481481481481481,
-        "old_english_sheepdog": 0.725925925925926,
-        "samoyed": 0.9259259259259259,
-        "dingo": 0.8
-      }
-    },
-    "checkpoint_sha256": "efaf21f739408f9b2163e037072c1ef17b54e0e8c8ae9fd5c4d00b0b7d6290e4",
-    "source_sha256": "baa0404e433d4efd1a5f4141f0833219d73997732c2cbfed8b1acdbd3c31529a"
+  "checkpoint_sha256": "2af4874bc5d4c955e3861df67bedbed8ea6f2fad0a186db3e3d8f2dcf34a1b98",
+  "source_sha256": "294d840aaea7a66f50ac8a82064217a33f156ceb94924bd81fdc084f586c5795"
+ },
+ {
+  "run": "runs/random_erasing_025",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 41,
+   "validation_images": 1295,
+   "validation_accuracy": 0.7822393822393823,
+   "public_predict_accuracy": 0.7822393822393823,
+   "per_class_accuracy": {
+    "shih_tzu": 0.762962962962963,
+    "rhodesian_ridgeback": 0.8222222222222222,
+    "beagle": 0.725925925925926,
+    "english_foxhound": 0.55,
+    "border_terrier": 0.8518518518518519,
+    "australian_terrier": 0.8148148148148148,
+    "golden_retriever": 0.7481481481481481,
+    "old_english_sheepdog": 0.725925925925926,
+    "samoyed": 0.9259259259259259,
+    "dingo": 0.8
+   }
   },
-  {
-    "run": "runs/depth_10conv",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 45,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8,
-      "public_predict_accuracy": 0.8,
-      "per_class_accuracy": {
-        "shih_tzu": 0.7851851851851852,
-        "rhodesian_ridgeback": 0.8444444444444444,
-        "beagle": 0.7777777777777778,
-        "english_foxhound": 0.6,
-        "border_terrier": 0.8444444444444444,
-        "australian_terrier": 0.7851851851851852,
-        "golden_retriever": 0.7851851851851852,
-        "old_english_sheepdog": 0.8222222222222222,
-        "samoyed": 0.8962962962962963,
-        "dingo": 0.7777777777777778
-      }
-    },
-    "checkpoint_sha256": "b0bcdc5620a379dc9050141d44ca74456eb6433e6e4fc2d0fc483cbf84329004",
-    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d"
+  "checkpoint_sha256": "efaf21f739408f9b2163e037072c1ef17b54e0e8c8ae9fd5c4d00b0b7d6290e4",
+  "source_sha256": "baa0404e433d4efd1a5f4141f0833219d73997732c2cbfed8b1acdbd3c31529a"
+ },
+ {
+  "run": "runs/depth_10conv",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 45,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8,
+   "public_predict_accuracy": 0.8,
+   "per_class_accuracy": {
+    "shih_tzu": 0.7851851851851852,
+    "rhodesian_ridgeback": 0.8444444444444444,
+    "beagle": 0.7777777777777778,
+    "english_foxhound": 0.6,
+    "border_terrier": 0.8444444444444444,
+    "australian_terrier": 0.7851851851851852,
+    "golden_retriever": 0.7851851851851852,
+    "old_english_sheepdog": 0.8222222222222222,
+    "samoyed": 0.8962962962962963,
+    "dingo": 0.7777777777777778
+   }
   },
-  {
-    "run": "runs/v3_weight_decay_001",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 45,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8092664092664092,
-      "public_predict_accuracy": 0.8092664092664092,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8592592592592593,
-        "rhodesian_ridgeback": 0.8444444444444444,
-        "beagle": 0.762962962962963,
-        "english_foxhound": 0.6125,
-        "border_terrier": 0.8296296296296296,
-        "australian_terrier": 0.7777777777777778,
-        "golden_retriever": 0.7925925925925926,
-        "old_english_sheepdog": 0.8148148148148148,
-        "samoyed": 0.9407407407407408,
-        "dingo": 0.7777777777777778
-      }
-    },
-    "checkpoint_sha256": "c2edde1051dbe9e81d6cdde49610555c1527f0d2d724d1f898ae69e7f1265ce1",
-    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
-    "bundle": "saved_models/v3_wd001_8093"
+  "checkpoint_sha256": "b0bcdc5620a379dc9050141d44ca74456eb6433e6e4fc2d0fc483cbf84329004",
+  "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d"
+ },
+ {
+  "run": "runs/v3_weight_decay_001",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 45,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8092664092664092,
+   "public_predict_accuracy": 0.8092664092664092,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8592592592592593,
+    "rhodesian_ridgeback": 0.8444444444444444,
+    "beagle": 0.762962962962963,
+    "english_foxhound": 0.6125,
+    "border_terrier": 0.8296296296296296,
+    "australian_terrier": 0.7777777777777778,
+    "golden_retriever": 0.7925925925925926,
+    "old_english_sheepdog": 0.8148148148148148,
+    "samoyed": 0.9407407407407408,
+    "dingo": 0.7777777777777778
+   }
   },
-  {
-    "run": "runs/v3_no_decay_continue",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 0,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8092664092664092,
-      "public_predict_accuracy": 0.8092664092664092,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8592592592592593,
-        "rhodesian_ridgeback": 0.8444444444444444,
-        "beagle": 0.762962962962963,
-        "english_foxhound": 0.6125,
-        "border_terrier": 0.8296296296296296,
-        "australian_terrier": 0.7777777777777778,
-        "golden_retriever": 0.7925925925925926,
-        "old_english_sheepdog": 0.8148148148148148,
-        "samoyed": 0.9407407407407408,
-        "dingo": 0.7777777777777778
-      }
-    },
-    "checkpoint_sha256": "84085af89188c7b9405ca55010ddddfb675ff4d2c2ed0e1c461827d4879146f7",
-    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
-    "weights_identical_to": "runs/v3_weight_decay_001/model.pth",
-    "best_extra_epoch": 10,
-    "best_extra_validation_accuracy": 0.8092664092664092
+  "checkpoint_sha256": "c2edde1051dbe9e81d6cdde49610555c1527f0d2d724d1f898ae69e7f1265ce1",
+  "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+  "bundle": "saved_models/v3_wd001_8093"
+ },
+ {
+  "run": "runs/v3_no_decay_continue",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 0,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8092664092664092,
+   "public_predict_accuracy": 0.8092664092664092,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8592592592592593,
+    "rhodesian_ridgeback": 0.8444444444444444,
+    "beagle": 0.762962962962963,
+    "english_foxhound": 0.6125,
+    "border_terrier": 0.8296296296296296,
+    "australian_terrier": 0.7777777777777778,
+    "golden_retriever": 0.7925925925925926,
+    "old_english_sheepdog": 0.8148148148148148,
+    "samoyed": 0.9407407407407408,
+    "dingo": 0.7777777777777778
+   }
   },
-  {
-    "run": "runs/v3_wd_01",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 39,
-      "validation_images": 1295,
-      "validation_accuracy": 0.7945945945945946,
-      "public_predict_accuracy": 0.7945945945945946,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8,
-        "rhodesian_ridgeback": 0.8518518518518519,
-        "beagle": 0.7925925925925926,
-        "english_foxhound": 0.4625,
-        "border_terrier": 0.8,
-        "australian_terrier": 0.8222222222222222,
-        "golden_retriever": 0.7555555555555555,
-        "old_english_sheepdog": 0.8666666666666667,
-        "samoyed": 0.8666666666666667,
-        "dingo": 0.7925925925925926
-      }
-    },
-    "checkpoint_sha256": "76e98f870a1d1583e270d95dd394892e5abcae5ea40ae9e1d5e0c7127ef124b4",
-    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
-    "weight_decay": 0.01,
-    "flip_average_validation_accuracy_measured_separately": 0.7938223938223938,
-    "note": "No improvement over runs/v3_weight_decay_001 (80.93%); weights not bundled."
+  "checkpoint_sha256": "84085af89188c7b9405ca55010ddddfb675ff4d2c2ed0e1c461827d4879146f7",
+  "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+  "weights_identical_to": "runs/v3_weight_decay_001/model.pth",
+  "best_extra_epoch": 10,
+  "best_extra_validation_accuracy": 0.8092664092664092
+ },
+ {
+  "run": "runs/v3_wd_01",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 39,
+   "validation_images": 1295,
+   "validation_accuracy": 0.7945945945945946,
+   "public_predict_accuracy": 0.7945945945945946,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8,
+    "rhodesian_ridgeback": 0.8518518518518519,
+    "beagle": 0.7925925925925926,
+    "english_foxhound": 0.4625,
+    "border_terrier": 0.8,
+    "australian_terrier": 0.8222222222222222,
+    "golden_retriever": 0.7555555555555555,
+    "old_english_sheepdog": 0.8666666666666667,
+    "samoyed": 0.8666666666666667,
+    "dingo": 0.7925925925925926
+   }
   },
-  {
-    "run": "runs/v3_wd_05",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 43,
-      "validation_images": 1295,
-      "validation_accuracy": 0.7992277992277992,
-      "public_predict_accuracy": 0.7992277992277992,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8222222222222222,
-        "rhodesian_ridgeback": 0.8518518518518519,
-        "beagle": 0.8,
-        "english_foxhound": 0.5125,
-        "border_terrier": 0.8222222222222222,
-        "australian_terrier": 0.8074074074074075,
-        "golden_retriever": 0.7703703703703704,
-        "old_english_sheepdog": 0.7925925925925926,
-        "samoyed": 0.9333333333333333,
-        "dingo": 0.762962962962963
-      }
-    },
-    "checkpoint_sha256": "67af6b5c639b5b62f21d9188b98fd6c623deb66b5ec8dcb6f36e68cda4692e10",
-    "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
-    "weight_decay": 0.05,
-    "flip_average_validation_accuracy_measured_separately": 0.81003861003861,
-    "note": "No improvement over runs/v3_weight_decay_001 (80.93%); weights not bundled."
+  "checkpoint_sha256": "76e98f870a1d1583e270d95dd394892e5abcae5ea40ae9e1d5e0c7127ef124b4",
+  "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+  "weight_decay": 0.01,
+  "flip_average_validation_accuracy_measured_separately": 0.7938223938223938,
+  "note": "No improvement over runs/v3_weight_decay_001 (80.93%); weights not bundled."
+ },
+ {
+  "run": "runs/v3_wd_05",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 43,
+   "validation_images": 1295,
+   "validation_accuracy": 0.7992277992277992,
+   "public_predict_accuracy": 0.7992277992277992,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8222222222222222,
+    "rhodesian_ridgeback": 0.8518518518518519,
+    "beagle": 0.8,
+    "english_foxhound": 0.5125,
+    "border_terrier": 0.8222222222222222,
+    "australian_terrier": 0.8074074074074075,
+    "golden_retriever": 0.7703703703703704,
+    "old_english_sheepdog": 0.7925925925925926,
+    "samoyed": 0.9333333333333333,
+    "dingo": 0.762962962962963
+   }
   },
-  {
-    "run": "runs/r1_v3_long150",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 71,
-      "validation_images": 1295,
-      "validation_accuracy": 0.827027027027027,
-      "public_predict_accuracy": 0.827027027027027,
-      "per_class_accuracy": {
-        "shih_tzu": 0.837037037037037,
-        "rhodesian_ridgeback": 0.8592592592592593,
-        "beagle": 0.7925925925925926,
-        "english_foxhound": 0.625,
-        "border_terrier": 0.837037037037037,
-        "australian_terrier": 0.8148148148148148,
-        "golden_retriever": 0.8444444444444444,
-        "old_english_sheepdog": 0.8148148148148148,
-        "samoyed": 0.9407407407407408,
-        "dingo": 0.8222222222222222
-      }
-    },
-    "checkpoint_sha256": "b4556b497a57e3c613d48c404c1256f377fd6e4022e1c73693f201431bb1099a",
-    "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
-    "note": "DogCNN-v3 150 epochs crop 0.35, EMA; 82.70%; flip 82.86% (1,073). Beaten by r2_v4_long150; weights not bundled.",
-    "flip_average_correct_measured_separately": 1073
+  "checkpoint_sha256": "67af6b5c639b5b62f21d9188b98fd6c623deb66b5ec8dcb6f36e68cda4692e10",
+  "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+  "weight_decay": 0.05,
+  "flip_average_validation_accuracy_measured_separately": 0.81003861003861,
+  "note": "No improvement over runs/v3_weight_decay_001 (80.93%); weights not bundled."
+ },
+ {
+  "run": "runs/r1_v3_long150",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 71,
+   "validation_images": 1295,
+   "validation_accuracy": 0.827027027027027,
+   "public_predict_accuracy": 0.827027027027027,
+   "per_class_accuracy": {
+    "shih_tzu": 0.837037037037037,
+    "rhodesian_ridgeback": 0.8592592592592593,
+    "beagle": 0.7925925925925926,
+    "english_foxhound": 0.625,
+    "border_terrier": 0.837037037037037,
+    "australian_terrier": 0.8148148148148148,
+    "golden_retriever": 0.8444444444444444,
+    "old_english_sheepdog": 0.8148148148148148,
+    "samoyed": 0.9407407407407408,
+    "dingo": 0.8222222222222222
+   }
   },
-  {
-    "run": "runs/r2_v4_long150",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 83,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8347490347490347,
-      "public_predict_accuracy": 0.8347490347490347,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8592592592592593,
-        "rhodesian_ridgeback": 0.8666666666666667,
-        "beagle": 0.8222222222222222,
-        "english_foxhound": 0.5625,
-        "border_terrier": 0.837037037037037,
-        "australian_terrier": 0.8148148148148148,
-        "golden_retriever": 0.8,
-        "old_english_sheepdog": 0.8962962962962963,
-        "samoyed": 0.9555555555555556,
-        "dingo": 0.8222222222222222
-      }
-    },
-    "checkpoint_sha256": "3303616c326d5e4a0b8acb929762dfd2c9ffc17e4d9ac8af2c1146ef7e24d00b",
-    "source_sha256": "28e4a25b1dd19e4303ecdb4dbe93ed70f01cfc4b04760ed26f62d26b129ce291",
-    "note": "New best; bundled in saved_models/v4_long150_8347.",
-    "flip_average_correct_measured_separately": 1093
+  "checkpoint_sha256": "b4556b497a57e3c613d48c404c1256f377fd6e4022e1c73693f201431bb1099a",
+  "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
+  "note": "DogCNN-v3 150 epochs crop 0.35, EMA; 82.70%; flip 82.86% (1,073). Beaten by r2_v4_long150; weights not bundled.",
+  "flip_average_correct_measured_separately": 1073
+ },
+ {
+  "run": "runs/r2_v4_long150",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 83,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8347490347490347,
+   "public_predict_accuracy": 0.8347490347490347,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8592592592592593,
+    "rhodesian_ridgeback": 0.8666666666666667,
+    "beagle": 0.8222222222222222,
+    "english_foxhound": 0.5625,
+    "border_terrier": 0.837037037037037,
+    "australian_terrier": 0.8148148148148148,
+    "golden_retriever": 0.8,
+    "old_english_sheepdog": 0.8962962962962963,
+    "samoyed": 0.9555555555555556,
+    "dingo": 0.8222222222222222
+   }
   },
-  {
-    "run": "runs/r1_v3_control",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 42,
-      "validation_images": 1295,
-      "validation_accuracy_in_training_accelerator": 0.806949806949807,
-      "public_predict_accuracy_cpu": 0.8077220077220078,
-      "flip_average_validation_accuracy_measured_separately": 0.8154440154440155,
-      "rebuilt": "Run crashed at the old strict final check (public 0.8077 vs in-training 0.8069, one near-tied image, accelerator rounding). Weights and history were saved before the check; this summary was rebuilt locally from the log and a CPU predict check. Strict check later relaxed to 2 images in source 28e4a25b."
-    },
-    "checkpoint_sha256": "93e5c79cc8430fa0b2c642e61d0fc64edcff7a7dfb69fc9c5d00f0e60bb1831e",
-    "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
-    "flip_average_correct_measured_separately": 1056,
-    "note": "Round 1 noise check: same recipe as 80.93% run plus workers 6 and EMA. EMA best 80.69% (in-training) / 80.77% public CPU; raw best 80.85% @44. Summary rebuilt after strict-check crash."
+  "checkpoint_sha256": "3303616c326d5e4a0b8acb929762dfd2c9ffc17e4d9ac8af2c1146ef7e24d00b",
+  "source_sha256": "28e4a25b1dd19e4303ecdb4dbe93ed70f01cfc4b04760ed26f62d26b129ce291",
+  "note": "New best; bundled in saved_models/v4_long150_8347.",
+  "flip_average_correct_measured_separately": 1093
+ },
+ {
+  "run": "runs/r1_v3_control",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 42,
+   "validation_images": 1295,
+   "validation_accuracy_in_training_accelerator": 0.806949806949807,
+   "public_predict_accuracy_cpu": 0.8077220077220078,
+   "flip_average_validation_accuracy_measured_separately": 0.8154440154440155,
+   "rebuilt": "Run crashed at the old strict final check (public 0.8077 vs in-training 0.8069, one near-tied image, accelerator rounding). Weights and history were saved before the check; this summary was rebuilt locally from the log and a CPU predict check. Strict check later relaxed to 2 images in source 28e4a25b."
   },
-  {
-    "run": "runs/r1_v4_wide",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 34,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8138996138996138,
-      "public_predict_accuracy": 0.8138996138996138,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8296296296296296,
-        "rhodesian_ridgeback": 0.8592592592592593,
-        "beagle": 0.7777777777777778,
-        "english_foxhound": 0.5375,
-        "border_terrier": 0.837037037037037,
-        "australian_terrier": 0.8074074074074075,
-        "golden_retriever": 0.8074074074074075,
-        "old_english_sheepdog": 0.8296296296296296,
-        "samoyed": 0.9407407407407408,
-        "dingo": 0.8
-      }
-    },
-    "checkpoint_sha256": "ca9f7abf79396d9cb64133b5c46177990e1b4f2e95156e0d41de09168f8c285e",
-    "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
-    "flip_average_correct_measured_separately": 1059,
-    "note": "Round 1: DogCNN-v4 50 epochs crop 0.85, EMA best epoch 34, 81.39%; raw best 81.24% @45. Not bundled."
+  "checkpoint_sha256": "93e5c79cc8430fa0b2c642e61d0fc64edcff7a7dfb69fc9c5d00f0e60bb1831e",
+  "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
+  "flip_average_correct_measured_separately": 1056,
+  "note": "Round 1 noise check: same recipe as 80.93% run plus workers 6 and EMA. EMA best 80.69% (in-training) / 80.77% public CPU; raw best 80.85% @44. Summary rebuilt after strict-check crash."
+ },
+ {
+  "run": "runs/r1_v4_wide",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 34,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8138996138996138,
+   "public_predict_accuracy": 0.8138996138996138,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8296296296296296,
+    "rhodesian_ridgeback": 0.8592592592592593,
+    "beagle": 0.7777777777777778,
+    "english_foxhound": 0.5375,
+    "border_terrier": 0.837037037037037,
+    "australian_terrier": 0.8074074074074075,
+    "golden_retriever": 0.8074074074074075,
+    "old_english_sheepdog": 0.8296296296296296,
+    "samoyed": 0.9407407407407408,
+    "dingo": 0.8
+   }
   },
-  {
-    "run": "runs/r3_v4_aug_strong",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 88,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8262548262548263,
-      "public_predict_accuracy": 0.8262548262548263,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8518518518518519,
-        "rhodesian_ridgeback": 0.8740740740740741,
-        "beagle": 0.8074074074074075,
-        "english_foxhound": 0.575,
-        "border_terrier": 0.8296296296296296,
-        "australian_terrier": 0.8074074074074075,
-        "golden_retriever": 0.8,
-        "old_english_sheepdog": 0.837037037037037,
-        "samoyed": 0.9333333333333333,
-        "dingo": 0.8444444444444444
-      }
-    },
-    "checkpoint_sha256": "44f68d8c63c33b0a4f11506703b89ae922ef3248e5a3c470cd9e802a91f73e64",
-    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
-    "flip_average_correct_measured_separately": 1081,
-    "note": "Round 3: DogCNN-v4 150 epochs crop 0.25 + rotation \u00b110\u00b0, EMA best epoch 88, 82.63%; raw best 82.01% @117. Stronger aug did not help. Not bundled."
+  "checkpoint_sha256": "ca9f7abf79396d9cb64133b5c46177990e1b4f2e95156e0d41de09168f8c285e",
+  "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
+  "flip_average_correct_measured_separately": 1059,
+  "note": "Round 1: DogCNN-v4 50 epochs crop 0.85, EMA best epoch 34, 81.39%; raw best 81.24% @45. Not bundled."
+ },
+ {
+  "run": "runs/r3_v4_aug_strong",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 88,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8262548262548263,
+   "public_predict_accuracy": 0.8262548262548263,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8518518518518519,
+    "rhodesian_ridgeback": 0.8740740740740741,
+    "beagle": 0.8074074074074075,
+    "english_foxhound": 0.575,
+    "border_terrier": 0.8296296296296296,
+    "australian_terrier": 0.8074074074074075,
+    "golden_retriever": 0.8,
+    "old_english_sheepdog": 0.837037037037037,
+    "samoyed": 0.9333333333333333,
+    "dingo": 0.8444444444444444
+   }
   },
-  {
-    "run": "runs/r3_v4_seed43",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 53,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8293436293436294,
-      "public_predict_accuracy": 0.8293436293436294,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8444444444444444,
-        "rhodesian_ridgeback": 0.837037037037037,
-        "beagle": 0.837037037037037,
-        "english_foxhound": 0.525,
-        "border_terrier": 0.8518518518518519,
-        "australian_terrier": 0.8148148148148148,
-        "golden_retriever": 0.8074074074074075,
-        "old_english_sheepdog": 0.8888888888888888,
-        "samoyed": 0.9259259259259259,
-        "dingo": 0.837037037037037
-      }
-    },
-    "checkpoint_sha256": "ca2527d761ec53f63bf50c84d68fc64fa2069e97a8ed23a1c2f804c3ce58edf4",
-    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
-    "flip_average_correct_measured_separately": 1079,
-    "note": "Round 3: same recipe as 83.47% best but seed 43; EMA best epoch 53, 82.93%; raw best 82.86% @103. Seed noise ~0.5 point. Not bundled."
+  "checkpoint_sha256": "44f68d8c63c33b0a4f11506703b89ae922ef3248e5a3c470cd9e802a91f73e64",
+  "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+  "flip_average_correct_measured_separately": 1081,
+  "note": "Round 3: DogCNN-v4 150 epochs crop 0.25 + rotation \u00b110\u00b0, EMA best epoch 88, 82.63%; raw best 82.01% @117. Stronger aug did not help. Not bundled."
+ },
+ {
+  "run": "runs/r3_v4_seed43",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 53,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8293436293436294,
+   "public_predict_accuracy": 0.8293436293436294,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8444444444444444,
+    "rhodesian_ridgeback": 0.837037037037037,
+    "beagle": 0.837037037037037,
+    "english_foxhound": 0.525,
+    "border_terrier": 0.8518518518518519,
+    "australian_terrier": 0.8148148148148148,
+    "golden_retriever": 0.8074074074074075,
+    "old_english_sheepdog": 0.8888888888888888,
+    "samoyed": 0.9259259259259259,
+    "dingo": 0.837037037037037
+   }
   },
-  {
-    "run": "runs/r4_v4_sgd_lr005",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 89,
-      "validation_images": 1295,
-      "validation_accuracy": 0.861003861003861,
-      "public_predict_accuracy": 0.861003861003861,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8592592592592593,
-        "rhodesian_ridgeback": 0.8740740740740741,
-        "beagle": 0.8444444444444444,
-        "english_foxhound": 0.7,
-        "border_terrier": 0.8444444444444444,
-        "australian_terrier": 0.8592592592592593,
-        "golden_retriever": 0.8814814814814815,
-        "old_english_sheepdog": 0.8814814814814815,
-        "samoyed": 0.9259259259259259,
-        "dingo": 0.8740740740740741
-      }
-    },
-    "checkpoint_sha256": "930c050e01677cba352670f31ac38546fbb77c4cdab69c339ac8275448c8a229",
-    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
-    "flip_average_correct_measured_separately": 1119,
-    "note": "Round 4: best recipe with SGD Nesterov lr 0.05 wd 0.0005 warm-up 5; EMA best epoch 89, 86.10% (1,115); raw best 85.10% @150. New best; bundled in saved_models/v4_sgd005_8610."
+  "checkpoint_sha256": "ca2527d761ec53f63bf50c84d68fc64fa2069e97a8ed23a1c2f804c3ce58edf4",
+  "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+  "flip_average_correct_measured_separately": 1079,
+  "note": "Round 3: same recipe as 83.47% best but seed 43; EMA best epoch 53, 82.93%; raw best 82.86% @103. Seed noise ~0.5 point. Not bundled."
+ },
+ {
+  "run": "runs/r4_v4_sgd_lr005",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 89,
+   "validation_images": 1295,
+   "validation_accuracy": 0.861003861003861,
+   "public_predict_accuracy": 0.861003861003861,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8592592592592593,
+    "rhodesian_ridgeback": 0.8740740740740741,
+    "beagle": 0.8444444444444444,
+    "english_foxhound": 0.7,
+    "border_terrier": 0.8444444444444444,
+    "australian_terrier": 0.8592592592592593,
+    "golden_retriever": 0.8814814814814815,
+    "old_english_sheepdog": 0.8814814814814815,
+    "samoyed": 0.9259259259259259,
+    "dingo": 0.8740740740740741
+   }
   },
-  {
-    "run": "runs/r4_v4_sgd_lr01",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 118,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8563706563706563,
-      "public_predict_accuracy": 0.8563706563706563,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8740740740740741,
-        "rhodesian_ridgeback": 0.9111111111111111,
-        "beagle": 0.8222222222222222,
-        "english_foxhound": 0.6,
-        "border_terrier": 0.8518518518518519,
-        "australian_terrier": 0.837037037037037,
-        "golden_retriever": 0.8592592592592593,
-        "old_english_sheepdog": 0.8962962962962963,
-        "samoyed": 0.9333333333333333,
-        "dingo": 0.8740740740740741
-      }
-    },
-    "checkpoint_sha256": "1f5b57cfb2467f82897711dcfd5eacda78a964cc94b4d649d752368f2b59e53d",
-    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
-    "flip_average_correct_measured_separately": 1110,
-    "note": "Round 4: same with SGD lr 0.1; EMA best epoch 118, 85.64% (1,109); raw best 85.33% @146. Not bundled."
+  "checkpoint_sha256": "930c050e01677cba352670f31ac38546fbb77c4cdab69c339ac8275448c8a229",
+  "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+  "flip_average_correct_measured_separately": 1119,
+  "note": "Round 4: best recipe with SGD Nesterov lr 0.05 wd 0.0005 warm-up 5; EMA best epoch 89, 86.10% (1,115); raw best 85.10% @150. New best; bundled in saved_models/v4_sgd005_8610."
+ },
+ {
+  "run": "runs/r4_v4_sgd_lr01",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 118,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8563706563706563,
+   "public_predict_accuracy": 0.8563706563706563,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8740740740740741,
+    "rhodesian_ridgeback": 0.9111111111111111,
+    "beagle": 0.8222222222222222,
+    "english_foxhound": 0.6,
+    "border_terrier": 0.8518518518518519,
+    "australian_terrier": 0.837037037037037,
+    "golden_retriever": 0.8592592592592593,
+    "old_english_sheepdog": 0.8962962962962963,
+    "samoyed": 0.9333333333333333,
+    "dingo": 0.8740740740740741
+   }
   },
-  {
-    "run": "runs/r5_v4_sgd_ep100",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 53,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8463320463320463,
-      "public_predict_accuracy": 0.8463320463320463,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8592592592592593,
-        "rhodesian_ridgeback": 0.8740740740740741,
-        "beagle": 0.837037037037037,
-        "english_foxhound": 0.575,
-        "border_terrier": 0.837037037037037,
-        "australian_terrier": 0.837037037037037,
-        "golden_retriever": 0.8222222222222222,
-        "old_english_sheepdog": 0.8888888888888888,
-        "samoyed": 0.9481481481481482,
-        "dingo": 0.8740740740740741
-      }
-    },
-    "checkpoint_sha256": "ef9c3d3191f885a23358e06af930f90e36a1c5e1d399cf21a6b3be2940024472",
-    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
-    "flip_average_correct_measured_separately": null,
-    "note": "Round 5: SGD best recipe, 100 epochs; EMA best epoch 53, 84.63% (1,096); train 99.4% by epoch 90. Shorter schedule memorizes sooner. Not bundled."
+  "checkpoint_sha256": "1f5b57cfb2467f82897711dcfd5eacda78a964cc94b4d649d752368f2b59e53d",
+  "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+  "flip_average_correct_measured_separately": 1110,
+  "note": "Round 4: same with SGD lr 0.1; EMA best epoch 118, 85.64% (1,109); raw best 85.33% @146. Not bundled."
+ },
+ {
+  "run": "runs/r5_v4_sgd_ep100",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 53,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8463320463320463,
+   "public_predict_accuracy": 0.8463320463320463,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8592592592592593,
+    "rhodesian_ridgeback": 0.8740740740740741,
+    "beagle": 0.837037037037037,
+    "english_foxhound": 0.575,
+    "border_terrier": 0.837037037037037,
+    "australian_terrier": 0.837037037037037,
+    "golden_retriever": 0.8222222222222222,
+    "old_english_sheepdog": 0.8888888888888888,
+    "samoyed": 0.9481481481481482,
+    "dingo": 0.8740740740740741
+   }
   },
-  {
-    "run": "runs/r5_v4_sgd_wd001",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 123,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8671814671814672,
-      "public_predict_accuracy": 0.8664092664092664,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8814814814814815,
-        "rhodesian_ridgeback": 0.8888888888888888,
-        "beagle": 0.8666666666666667,
-        "english_foxhound": 0.5625,
-        "border_terrier": 0.8814814814814815,
-        "australian_terrier": 0.8444444444444444,
-        "golden_retriever": 0.8666666666666667,
-        "old_english_sheepdog": 0.9333333333333333,
-        "samoyed": 0.9555555555555556,
-        "dingo": 0.8666666666666667
-      }
-    },
-    "checkpoint_sha256": "869dad6418f0697b75d69f16d971d6ee6b931daf557dbcfe0b58b1d64e5a15d5",
-    "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
-    "flip_average_correct_measured_separately": 1120,
-    "note": "Round 5: SGD best recipe with wd 0.001; EMA best epoch 123, 86.72% (1,123) CPU / 86.64% (1,122) accelerator predict. New best; bundled in saved_models/v4_sgd_wd001_8672."
+  "checkpoint_sha256": "ef9c3d3191f885a23358e06af930f90e36a1c5e1d399cf21a6b3be2940024472",
+  "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+  "flip_average_correct_measured_separately": null,
+  "note": "Round 5: SGD best recipe, 100 epochs; EMA best epoch 53, 84.63% (1,096); train 99.4% by epoch 90. Shorter schedule memorizes sooner. Not bundled."
+ },
+ {
+  "run": "runs/r5_v4_sgd_wd001",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 123,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8671814671814672,
+   "public_predict_accuracy": 0.8664092664092664,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8814814814814815,
+    "rhodesian_ridgeback": 0.8888888888888888,
+    "beagle": 0.8666666666666667,
+    "english_foxhound": 0.5625,
+    "border_terrier": 0.8814814814814815,
+    "australian_terrier": 0.8444444444444444,
+    "golden_retriever": 0.8666666666666667,
+    "old_english_sheepdog": 0.9333333333333333,
+    "samoyed": 0.9555555555555556,
+    "dingo": 0.8666666666666667
+   }
   },
-  {
-    "run": "runs/r6_v4_sgd_wd002",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 113,
-      "validation_images": 1295,
-      "validation_accuracy": 0.8563706563706563,
-      "public_predict_accuracy": 0.8563706563706563,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8740740740740741,
-        "rhodesian_ridgeback": 0.8740740740740741,
-        "beagle": 0.8592592592592593,
-        "english_foxhound": 0.575,
-        "border_terrier": 0.8666666666666667,
-        "australian_terrier": 0.8296296296296296,
-        "golden_retriever": 0.8518518518518519,
-        "old_english_sheepdog": 0.8814814814814815,
-        "samoyed": 0.9407407407407408,
-        "dingo": 0.8962962962962963
-      }
-    },
-    "checkpoint_sha256": "680e5f18a667a6381d1fdd9cadc04a18bd10741a32c74ade061f407730eab6a3",
-    "source_sha256": "327e43fb9d0f58a9a0d511074a9081953df6a3ab6574df3d295d0504e4ac2872",
-    "note": "Round 6: 86.72% recipe with wd 0.002; EMA best epoch 113, 85.64% (1,109); memorized late (train 99.5% at 150). No new best."
+  "checkpoint_sha256": "869dad6418f0697b75d69f16d971d6ee6b931daf557dbcfe0b58b1d64e5a15d5",
+  "source_sha256": "28607decfdf67ebbc904e02840f4b6a67fe6ae938b3f84b8716a291862213451",
+  "flip_average_correct_measured_separately": 1120,
+  "note": "Round 5: SGD best recipe with wd 0.001; EMA best epoch 123, 86.72% (1,123) CPU / 86.64% (1,122) accelerator predict. New best; bundled in saved_models/v4_sgd_wd001_8672."
+ },
+ {
+  "run": "runs/r6_v4_sgd_wd002",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 113,
+   "validation_images": 1295,
+   "validation_accuracy": 0.8563706563706563,
+   "public_predict_accuracy": 0.8563706563706563,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8740740740740741,
+    "rhodesian_ridgeback": 0.8740740740740741,
+    "beagle": 0.8592592592592593,
+    "english_foxhound": 0.575,
+    "border_terrier": 0.8666666666666667,
+    "australian_terrier": 0.8296296296296296,
+    "golden_retriever": 0.8518518518518519,
+    "old_english_sheepdog": 0.8814814814814815,
+    "samoyed": 0.9407407407407408,
+    "dingo": 0.8962962962962963
+   }
   },
-  {
-    "run": "runs/r6_v4_trainval_ep125",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 125,
-      "validation_images": 1295,
-      "validation_accuracy": 0.9992277992277993,
-      "public_predict_accuracy": 0.9992277992277993,
-      "per_class_accuracy": {
-        "shih_tzu": 1.0,
-        "rhodesian_ridgeback": 1.0,
-        "beagle": 1.0,
-        "english_foxhound": 0.9875,
-        "border_terrier": 1.0,
-        "australian_terrier": 1.0,
-        "golden_retriever": 1.0,
-        "old_english_sheepdog": 1.0,
-        "samoyed": 1.0,
-        "dingo": 1.0
-      }
-    },
-    "checkpoint_sha256": "508cf0ac9e688a2292b86d8945cee2370defa5b78a809fa96f82ab57e5bfe6e3",
-    "source_sha256": "327e43fb9d0f58a9a0d511074a9081953df6a3ab6574df3d295d0504e4ac2872",
-    "note": "Round 6: 86.72% recipe trained on train+val (10,360 images), fixed stop at epoch 125 of a 150-epoch schedule; 'validation' scores are on training images (99.92%), not a held-out measure. CPU verifier passed. Candidate final model; not selected."
+  "checkpoint_sha256": "680e5f18a667a6381d1fdd9cadc04a18bd10741a32c74ade061f407730eab6a3",
+  "source_sha256": "327e43fb9d0f58a9a0d511074a9081953df6a3ab6574df3d295d0504e4ac2872",
+  "note": "Round 6: 86.72% recipe with wd 0.002; EMA best epoch 113, 85.64% (1,109); memorized late (train 99.5% at 150). No new best."
+ },
+ {
+  "run": "runs/r6_v4_trainval_ep125",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 125,
+   "validation_images": 1295,
+   "validation_accuracy": 0.9992277992277993,
+   "public_predict_accuracy": 0.9992277992277993,
+   "per_class_accuracy": {
+    "shih_tzu": 1.0,
+    "rhodesian_ridgeback": 1.0,
+    "beagle": 1.0,
+    "english_foxhound": 0.9875,
+    "border_terrier": 1.0,
+    "australian_terrier": 1.0,
+    "golden_retriever": 1.0,
+    "old_english_sheepdog": 1.0,
+    "samoyed": 1.0,
+    "dingo": 1.0
+   }
   },
-  {
-    "run": "runs/r7_v4_resplit7030",
-    "summary": {
-      "smoke_run": false,
-      "best_epoch": 102,
-      "validation_images": 3109,
-      "validation_accuracy": 0.8391765841106466,
-      "public_predict_accuracy": 0.8391765841106466,
-      "per_class_accuracy": {
-        "shih_tzu": 0.8364197530864198,
-        "rhodesian_ridgeback": 0.8641975308641975,
-        "beagle": 0.8117283950617284,
-        "english_foxhound": 0.6321243523316062,
-        "border_terrier": 0.8796296296296297,
-        "australian_terrier": 0.8179012345679012,
-        "golden_retriever": 0.8055555555555556,
-        "old_english_sheepdog": 0.8395061728395061,
-        "samoyed": 0.9382716049382716,
-        "dingo": 0.8827160493827161
-      }
-    },
-    "checkpoint_sha256": "c41a4e29c4aab75c808884ad6b4c22c3fc16c85959715b1ef4528906bcccaa4e",
-    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
-    "note": "Round 7: 86.72% recipe on seeded stratified 70/30 re-split of pooled train+val (7,251 train / 3,109 val). EMA best epoch 102: 83.92% (2,609/3,109); flip 84.34% at that epoch. Not comparable to supplied-split scores; not a submission candidate."
+  "checkpoint_sha256": "508cf0ac9e688a2292b86d8945cee2370defa5b78a809fa96f82ab57e5bfe6e3",
+  "source_sha256": "327e43fb9d0f58a9a0d511074a9081953df6a3ab6574df3d295d0504e4ac2872",
+  "note": "Round 6: 86.72% recipe trained on train+val (10,360 images), fixed stop at epoch 125 of a 150-epoch schedule; 'validation' scores are on training images (99.92%), not a held-out measure. CPU verifier passed. Candidate final model; not selected."
+ },
+ {
+  "run": "runs/r7_v4_resplit7030",
+  "summary": {
+   "smoke_run": false,
+   "best_epoch": 102,
+   "validation_images": 3109,
+   "validation_accuracy": 0.8391765841106466,
+   "public_predict_accuracy": 0.8391765841106466,
+   "per_class_accuracy": {
+    "shih_tzu": 0.8364197530864198,
+    "rhodesian_ridgeback": 0.8641975308641975,
+    "beagle": 0.8117283950617284,
+    "english_foxhound": 0.6321243523316062,
+    "border_terrier": 0.8796296296296297,
+    "australian_terrier": 0.8179012345679012,
+    "golden_retriever": 0.8055555555555556,
+    "old_english_sheepdog": 0.8395061728395061,
+    "samoyed": 0.9382716049382716,
+    "dingo": 0.8827160493827161
+   }
   },
-  {
-    "run": "runs/r8_v4_resplit9010",
-    "summary": {
-      "best_epoch": 83,
-      "validation_images": 1036,
-      "validation_accuracy": 0.859073359073359,
-      "public_predict_accuracy": 0.859073359073359
-    },
-    "checkpoint_sha256": "1a0341070172c4d66fe9958268263df1e4167faab7af70135ceb2d4e34d520ec",
-    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
-    "note": "86.72% recipe on seeded stratified 90/10 re-split of pooled train+val (9,324/1,036). EMA best @83 85.91% (890/1,036); final 84.75%; flip best 86.78% @149. Not directly comparable to 86.72% (different val set)."
+  "checkpoint_sha256": "c41a4e29c4aab75c808884ad6b4c22c3fc16c85959715b1ef4528906bcccaa4e",
+  "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+  "note": "Round 7: 86.72% recipe on seeded stratified 70/30 re-split of pooled train+val (7,251 train / 3,109 val). EMA best epoch 102: 83.92% (2,609/3,109); flip 84.34% at that epoch. Not comparable to supplied-split scores; not a submission candidate."
+ },
+ {
+  "run": "runs/r8_v4_resplit9010",
+  "summary": {
+   "best_epoch": 83,
+   "validation_images": 1036,
+   "validation_accuracy": 0.859073359073359,
+   "public_predict_accuracy": 0.859073359073359
   },
-  {
-    "run": "runs/r9_v4_trainval_ep150",
-    "summary": {
-      "epochs": 150,
-      "train_images": 10360,
-      "validation": "none held out (100/0); in-training val 100% is memorized"
-    },
-    "checkpoint_sha256": "c7a9e19f4b604e94e89c3318c1a0e0e8fda1deaba79eaf5093871add3879722e",
-    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
-    "note": "86.72% recipe on all supplied train+val (--train-on-val), full 150 epochs, final epoch saved. Unscored; CPU verifier passed."
+  "checkpoint_sha256": "1a0341070172c4d66fe9958268263df1e4167faab7af70135ceb2d4e34d520ec",
+  "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+  "note": "86.72% recipe on seeded stratified 90/10 re-split of pooled train+val (9,324/1,036). EMA best @83 85.91% (890/1,036); final 84.75%; flip best 86.78% @149. Not directly comparable to 86.72% (different val set)."
+ },
+ {
+  "run": "runs/r9_v4_trainval_ep150",
+  "summary": {
+   "epochs": 150,
+   "train_images": 10360,
+   "validation": "none held out (100/0); in-training val 100% is memorized"
   },
-  {
-    "run": "runs/r10_v4_resplit9505",
-    "summary": {
-      "best_epoch": 126,
-      "validation_images": 518,
-      "validation_accuracy": 0.8783783783783784,
-      "public_predict_accuracy": 0.8783783783783784
-    },
-    "checkpoint_sha256": "8e71ad810c49c01627acfc9b702c6f8d213f0e99207656c650cdfc1d55def8b2",
-    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
-    "note": "86.72% recipe on seeded stratified 95/5 re-split (9,842/518). EMA best @126 87.84% (455/518); noisy (1 image ~0.19 pt). Not directly comparable to 86.72%."
-  }
+  "checkpoint_sha256": "c7a9e19f4b604e94e89c3318c1a0e0e8fda1deaba79eaf5093871add3879722e",
+  "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+  "note": "86.72% recipe on all supplied train+val (--train-on-val), full 150 epochs, final epoch saved. Unscored; CPU verifier passed."
+ },
+ {
+  "run": "runs/r10_v4_resplit9505",
+  "summary": {
+   "best_epoch": 126,
+   "validation_images": 518,
+   "validation_accuracy": 0.8783783783783784,
+   "public_predict_accuracy": 0.8783783783783784
+  },
+  "checkpoint_sha256": "8e71ad810c49c01627acfc9b702c6f8d213f0e99207656c650cdfc1d55def8b2",
+  "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+  "note": "86.72% recipe on seeded stratified 95/5 re-split (9,842/518). EMA best @126 87.84% (455/518); noisy (1 image ~0.19 pt). Not directly comparable to 86.72%."
+ },
+ {
+  "run": "runs/r11_v4_trainval_ep200",
+  "summary": {
+   "best_epoch": 200,
+   "validation_images": 1295,
+   "validation_accuracy": 1.0,
+   "public_predict_accuracy": 1.0
+  },
+  "checkpoint_sha256": "71317948b26d89032dc0d6dc2f53e44b09514fbe21b6cea0122bf825d2f5bc85",
+  "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+  "note": "86.72% recipe on all 10,360 images (100/0), 200 epochs; unscored; CPU verifier passed."
+ },
+ {
+  "run": "runs/r11_v4_resplit9505_ep200",
+  "summary": {
+   "best_epoch": 162,
+   "validation_images": 518,
+   "validation_accuracy": 0.8745173745173745,
+   "public_predict_accuracy": 0.8745173745173745
+  },
+  "checkpoint_sha256": "30e6b7ebc1e6cc65711250f91f6f282387cdcc3d5a4b665e24cee64714ba6cfd",
+  "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+  "note": "Same 95/5 split as r10, 200-epoch schedule. EMA best @162 87.45% (453/518) vs 87.84% at 150 epochs: longer schedule does not help."
+ },
+ {
+  "run": "runs/r12_v4_resplit9901",
+  "summary": {
+   "best_epoch": 113,
+   "validation_images": 105,
+   "validation_accuracy": 0.8952380952380953,
+   "public_predict_accuracy": 0.8952380952380953
+  },
+  "checkpoint_sha256": "2d8f6073d4ae042d9ed7a96c75427dd7d369a5efa90f19471738ef8e0b73f6f9",
+  "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+  "note": "Seeded stratified 99/1 re-split (10,255/105), 150 epochs. EMA best @113 89.52% (94/105); very noisy (1 image ~0.95 pt). Bundle saved_models/v4_resplit9901_8952/."
+ }
 ]

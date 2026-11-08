@@ -1,0 +1,6 @@
+# Versions used for the verified baseline. Choose the matching CUDA torch build
+# when installing on a CUDA training machine.
+torch==2.9.1
+torchvision==0.24.1
+numpy==2.4.2
+Pillow==12.2.0
