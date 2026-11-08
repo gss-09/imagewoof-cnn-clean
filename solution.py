@@ -23,6 +23,7 @@ ARCHITECTURES = {
     "DogCNN-v1": (32, 64, 128),
     "DogCNN-v2": (32, 64, 128, 192),
     "DogCNN-v3": (32, 64, 128, 256, 256),
+    "DogCNN-v4": (64, 128, 256, 512, 512),
 }
 
 
@@ -151,7 +152,43 @@ def choose_device(requested):
     return device
 
 
-def run_epoch(model, loader, criterion, device, optimizer=None):
+class WeightAverage:
+    """Exponential moving average of weights and BatchNorm buffers (training only).
+
+    The averaged copy is the same sequential DogCNN, so a saved average loads with
+    load_model like any other checkpoint.
+    """
+
+    def __init__(self, model, decay):
+        import copy
+        self.decay = decay
+        self.model = copy.deepcopy(model).eval()
+        for parameter in self.model.parameters():
+            parameter.requires_grad_(False)
+
+    @torch.no_grad()
+    def update(self, model):
+        for average, current in zip(self.model.state_dict().values(), model.state_dict().values()):
+            if average.dtype.is_floating_point:
+                average.mul_(self.decay).add_(current, alpha=1.0 - self.decay)
+            else:
+                average.copy_(current)
+
+
+def flip_accuracy(model, loader, device):
+    """Validation accuracy when averaging softmax over each image and its mirror (logged only)."""
+    model.eval()
+    correct = total = 0
+    with torch.inference_mode():
+        for images, labels in loader:
+            images, labels = images.to(device), labels.to(device)
+            probabilities = model(images).softmax(1) + model(images.flip(3)).softmax(1)
+            correct += (probabilities.argmax(1) == labels).sum().item()
+            total += len(labels)
+    return correct / total
+
+
+def run_epoch(model, loader, criterion, device, optimizer=None, after_step=None):
     model.train(optimizer is not None)
     total_loss = correct = total = 0
     confusion = torch.zeros(10, 10, dtype=torch.int64)
@@ -167,6 +204,8 @@ def run_epoch(model, loader, criterion, device, optimizer=None):
             if optimizer is not None:
                 loss.backward()
                 optimizer.step()
+                if after_step is not None:
+                    after_step()
             predicted = logits.detach().argmax(1)
             total_loss += loss.item() * len(labels)
             correct += (predicted == labels).sum().item()
@@ -203,6 +242,12 @@ def train(args):
 
     if args.epochs < 1 or args.batch_size < 1 or args.patience < 1 or args.workers < 0:
         raise ValueError("epochs, batch-size, and patience must be positive; workers nonnegative")
+    if not 0.0 < args.crop_min <= 1.0:
+        raise ValueError("--crop-min must be in (0, 1]")
+    if not 0.0 <= args.ema_decay < 1.0:
+        raise ValueError("--ema-decay must be in [0, 1); 0 disables weight averaging")
+    if not 0 <= args.warmup_epochs < args.epochs:
+        raise ValueError("--warmup-epochs must be nonnegative and smaller than --epochs")
     random.seed(args.seed)
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -225,7 +270,7 @@ def train(args):
     output.mkdir(parents=True, exist_ok=False)
 
     train_transform = transforms.Compose([
-        transforms.RandomResizedCrop(128, scale=(0.85, 1.0)),
+        transforms.RandomResizedCrop(128, scale=(args.crop_min, 1.0)),
         transforms.RandomHorizontalFlip(),
         transforms.ColorJitter(brightness=0.15, contrast=0.15, saturation=0.15),
         transforms.ToTensor(), transforms.Normalize(MEAN, STD),
@@ -249,8 +294,16 @@ def train(args):
                   train_images=len(train_data), validation_images=len(val_data),
                   architecture=args.architecture, class_names=list(CLASS_NAMES),
                   mean=list(MEAN), std=list(STD), split="provided split",
-                  augmentation="random resized crop scale 0.85–1.0, horizontal flip, color jitter 0.15",
-                  optimizer="AdamW", scheduler="cosine", label_smoothing=0.1,
+                  augmentation=f"random resized crop scale {args.crop_min:g}–1.0, horizontal flip, "
+                               "color jitter 0.15",
+                  optimizer=("AdamW" if args.optimizer == "adamw" else
+                             f"SGD Nesterov momentum {args.momentum:g}"),
+                  scheduler=(f"linear warmup {args.warmup_epochs} epochs, then cosine"
+                             if args.warmup_epochs else "cosine"),
+                  weight_average=(f"EMA decay {args.ema_decay:g} of weights and BatchNorm "
+                                  "buffers; checkpoint selected on EMA validation"
+                                  if args.ema_decay else "none"),
+                  label_smoothing=0.1,
                   determinism="fixed seeds; deterministic algorithms warn on unsupported operations")
     (output / "config.json").write_text(json.dumps(config, indent=2) + "\n")
     (output / "split.json").write_text(json.dumps({
@@ -264,17 +317,30 @@ def train(args):
         raise ValueError("--architecture must match the initialization checkpoint")
     model = model.to(device)
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    if args.optimizer == "adamw":
+        optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    else:
+        optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum,
+                                    nesterov=True, weight_decay=args.weight_decay)
     epochs = min(args.epochs, 2) if args.smoke else args.epochs
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
+    warmup = min(args.warmup_epochs, epochs - 1)
+    if warmup:
+        import math
+        scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda e: (
+            (e + 1) / warmup if e < warmup else
+            0.5 * (1 + math.cos(math.pi * (e - warmup) / (epochs - warmup)))))
+    else:
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
+    average = WeightAverage(model, args.ema_decay) if args.ema_decay else None
+    selected = average.model if average is not None else model
     best_accuracy, best_epoch = -1.0, 0
     best_validation = None
     def save_best(epoch):
         torch.save({"architecture": args.architecture, "state_dict": {
-            key: value.detach().cpu() for key, value in model.state_dict().items()
+            key: value.detach().cpu() for key, value in selected.state_dict().items()
         }, "class_names": list(CLASS_NAMES), "mean": list(MEAN), "std": list(STD),
             "seed": args.seed, "epoch": epoch, "validation_accuracy": best_accuracy,
-            "smoke_run": args.smoke,
+            "smoke_run": args.smoke, "weight_average": bool(average),
             "init_checkpoint": str(args.init_checkpoint) if args.init_checkpoint else None,
         }, output / "model.pth")
 
@@ -291,14 +357,26 @@ def train(args):
           f"train: {len(train_data)}; validation: {len(val_data)}; smoke: {args.smoke}", flush=True)
     for epoch in range(1, epochs + 1):
         started = time.perf_counter()
-        training = run_epoch(model, train_loader, criterion, device, optimizer)
+        training = run_epoch(model, train_loader, criterion, device, optimizer,
+                             (lambda: average.update(model)) if average is not None else None)
         validation = run_epoch(model, val_loader, criterion, device)
         row = dict(epoch=epoch, lr=optimizer.param_groups[0]["lr"], train=training,
-                   validation=validation, seconds=time.perf_counter() - started)
+                   validation=validation)
+        message = ""
+        if average is not None:
+            # Raw-weight validation stays logged; the averaged weights drive selection.
+            row["validation_raw"] = validation
+            validation = run_epoch(average.model, val_loader, criterion, device)
+            row["validation"] = validation
+            message += f", raw={row['validation_raw']['accuracy']:.2%}"
+        if args.log_flip:
+            row["validation_flip_accuracy"] = flip_accuracy(selected, val_loader, device)
+            message += f", flip={row['validation_flip_accuracy']:.2%}"
+        row["seconds"] = time.perf_counter() - started
         history.append(row)
         (output / "history.json").write_text(json.dumps(history, indent=2) + "\n")
         print(f"Epoch {epoch}/{epochs}: loss={training['loss']:.4f}, "
-              f"train={training['accuracy']:.2%}, val={validation['accuracy']:.2%}, "
+              f"train={training['accuracy']:.2%}, val={validation['accuracy']:.2%}{message}, "
               f"{row['seconds']:.1f}s", flush=True)
         if validation["accuracy"] > best_accuracy:
             best_accuracy, best_epoch = validation["accuracy"], epoch
@@ -336,7 +414,20 @@ def main():
     parser.add_argument("--device", choices=("auto", "cpu", "cuda", "mps"), default="auto")
     parser.add_argument("--architecture", choices=tuple(ARCHITECTURES), default="DogCNN-v1",
                         help="v1: six convolutions; v2: eight convolutions; "
-                             "v3: ten convolutions, five pooling stages, wider final blocks")
+                             "v3: ten convolutions, five pooling stages, wider final blocks; "
+                             "v4: v3 layout with every block twice as wide")
+    parser.add_argument("--crop-min", type=float, default=0.85,
+                        help="Smallest RandomResizedCrop area fraction (training only)")
+    parser.add_argument("--optimizer", choices=("adamw", "sgd"), default="adamw")
+    parser.add_argument("--momentum", type=float, default=0.9, help="SGD Nesterov momentum")
+    parser.add_argument("--warmup-epochs", type=int, default=0,
+                        help="Linear learning-rate warmup before cosine decay; 0 keeps plain cosine")
+    parser.add_argument("--ema-decay", type=float, default=0.0,
+                        help="Per-step exponential weight averaging; 0 disables. When enabled, "
+                             "the averaged weights are evaluated and saved")
+    parser.add_argument("--log-flip", action="store_true",
+                        help="Also log flip-averaged validation accuracy each epoch (no effect on "
+                             "training, selection, or predict)")
     parser.add_argument("--init-checkpoint", type=Path,
                         help="Continue from saved weights with a fresh optimizer and schedule; "
                              "retain initial validation as the score to beat")
