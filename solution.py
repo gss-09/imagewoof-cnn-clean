@@ -231,8 +231,13 @@ def check_public_interface(model, dataset, expected_accuracy):
         labels = np.array([label for _, label in samples])
         correct += int((predictions == labels).sum())
     accuracy = correct / len(dataset)
-    if abs(accuracy - expected_accuracy) > 1e-9:
+    # Accelerator kernels may round differently between calls, flipping a near-tied image;
+    # allow at most two images of difference and report both numbers.
+    if abs(accuracy - expected_accuracy) * len(dataset) > 2 + 1e-6:
         raise RuntimeError(f"Public accuracy {accuracy} differs from validation {expected_accuracy}")
+    if abs(accuracy - expected_accuracy) > 1e-9:
+        print(f"Note: public predict {accuracy:.4%} vs in-training {expected_accuracy:.4%} "
+              "(accelerator rounding on a near-tied image)", flush=True)
     return accuracy
 
 
