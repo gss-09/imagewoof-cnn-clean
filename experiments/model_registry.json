@@ -547,5 +547,17 @@
     "checkpoint_sha256": "c41a4e29c4aab75c808884ad6b4c22c3fc16c85959715b1ef4528906bcccaa4e",
     "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
     "note": "Round 7: 86.72% recipe on seeded stratified 70/30 re-split of pooled train+val (7,251 train / 3,109 val). EMA best epoch 102: 83.92% (2,609/3,109); flip 84.34% at that epoch. Not comparable to supplied-split scores; not a submission candidate."
+  },
+  {
+    "run": "runs/r8_v4_resplit9010",
+    "summary": {
+      "best_epoch": 83,
+      "validation_images": 1036,
+      "validation_accuracy": 0.859073359073359,
+      "public_predict_accuracy": 0.859073359073359
+    },
+    "checkpoint_sha256": "1a0341070172c4d66fe9958268263df1e4167faab7af70135ceb2d4e34d520ec",
+    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+    "note": "86.72% recipe on seeded stratified 90/10 re-split of pooled train+val (9,324/1,036). EMA best @83 85.91% (890/1,036); final 84.75%; flip best 86.78% @149. Not directly comparable to 86.72% (different val set)."
   }
 ]
