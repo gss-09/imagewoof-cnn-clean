@@ -1,0 +1,39 @@
+{
+  "architecture": "DogCNN-v3",
+  "epochs": 10,
+  "batch_size": 32,
+  "lr": 1e-05,
+  "weight_decay": 0,
+  "patience": 10,
+  "seed": 42,
+  "workers": 0,
+  "threads": 4,
+  "device": "cuda",
+  "augmentation": "random resized crop scale 0.85\u20131.0, horizontal flip, color jitter 0.15",
+  "optimizer": "AdamW",
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "train_images": 9065,
+  "validation_images": 1295,
+  "mean": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "std": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "output": "runs/v3_no_decay_continue",
+  "init_checkpoint": "runs/v3_weight_decay_001/model.pth",
+  "status": "authorized",
+  "reference_run": "runs/v3_weight_decay_001",
+  "reference_accuracy": 0.8092664092664092,
+  "source_sha256": "cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d",
+  "changes": [
+    "continuation from best checkpoint with fresh optimizer",
+    "weight_decay=0",
+    "lr=0.00001 with cosine over 10 extra epochs"
+  ]
+}

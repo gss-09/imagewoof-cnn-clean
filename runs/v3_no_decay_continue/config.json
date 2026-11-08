@@ -1,0 +1,47 @@
+{
+  "data_root": ".",
+  "output": "runs/v3_no_decay_continue",
+  "epochs": 10,
+  "batch_size": 32,
+  "lr": 1e-05,
+  "weight_decay": 0.0,
+  "patience": 10,
+  "seed": 42,
+  "workers": 0,
+  "threads": 4,
+  "device": "cuda",
+  "architecture": "DogCNN-v3",
+  "init_checkpoint": "runs/v3_weight_decay_001/model.pth",
+  "smoke": false,
+  "torch_version": "2.9.1+cu128",
+  "train_images": 9065,
+  "validation_images": 1295,
+  "class_names": [
+    "shih_tzu",
+    "rhodesian_ridgeback",
+    "beagle",
+    "english_foxhound",
+    "border_terrier",
+    "australian_terrier",
+    "golden_retriever",
+    "old_english_sheepdog",
+    "samoyed",
+    "dingo"
+  ],
+  "mean": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "std": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "split": "provided split",
+  "augmentation": "random resized crop scale 0.85\u20131.0, horizontal flip, color jitter 0.15",
+  "optimizer": "AdamW",
+  "scheduler": "cosine",
+  "label_smoothing": 0.1,
+  "determinism": "fixed seeds; deterministic algorithms warn on unsupported operations"
+}

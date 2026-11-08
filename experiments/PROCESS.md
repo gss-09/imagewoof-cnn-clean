@@ -59,3 +59,7 @@ DogCNN-v3 completed 50 CUDA epochs: best epoch45 80.00% (1,036/1,295), 14 more c
 ## Stronger weight decay completed
 
 V3 AdamW weight decay 0.001 completed 50 CUDA epochs, otherwise identical to prior v3. Best epoch45: 80.9266% (1,048/1,295), +12 correct images over 80.00%. Final training98.18%, validation80.54%. Public prediction and CPU verifier passed; identical split and recorded hashes confirmed. New best bundle `saved_models/v3_wd001_8093/` includes weights in Git, tag `v3-wd001-80.93`; earlier bundles preserved. No training remains active.
+
+## Zero-weight-decay continuation
+
+Authorized continuation from best v3, fresh AdamW lr0.00001, wd0, cosine10. All10 extra epochs completed with no validation gain; epoch10 matched80.9266%, original checkpoint retained (state tensors identical). Public prediction/CPU checks and transfer hashes passed. Keep `saved_models/v3_wd001_8093/`; no training active. Records in `experiments/v3_no_decay_continue/` and `runs/v3_no_decay_continue/`.

@@ -4,6 +4,8 @@ This baseline implements the six-convolution model discussed in the course workf
 
 ## Current status
 
+- **Zero-weight-decay continuation completed:** 10 extra epochs starting at learning rate `0.00001` produced no validation gain. Final extra epoch matched 80.93%; original best weights retained. [Results](experiments/v3_no_decay_continue/README.md). No training active.
+
 - **New best: 80.93% (1,048/1,295), epoch 45.** V3 with AdamW weight decay `0.001` completed all 50 epochs. +12 correct images over previous v3; public prediction and CPU verification passed. No training active. [Experiment results](experiments/v3_weight_decay_001/README.md).
 
 - **DogCNN-v3 completed: 80.00% (1,036/1,295), epoch 45.** All 50 epochs finished; public prediction and CPU portability checks passed. Architecture: ten convolutions; channels 32, 64, 128, 256, 256; successful gentler-crop augmentation, no random erasing. See [plan and checks](experiments/depth_10conv.md).
