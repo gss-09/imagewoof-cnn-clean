@@ -222,5 +222,55 @@
     "weight_decay": 0.05,
     "flip_average_validation_accuracy_measured_separately": 0.81003861003861,
     "note": "No improvement over runs/v3_weight_decay_001 (80.93%); weights not bundled."
+  },
+  {
+    "run": "runs/r1_v3_long150",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 71,
+      "validation_images": 1295,
+      "validation_accuracy": 0.827027027027027,
+      "public_predict_accuracy": 0.827027027027027,
+      "per_class_accuracy": {
+        "shih_tzu": 0.837037037037037,
+        "rhodesian_ridgeback": 0.8592592592592593,
+        "beagle": 0.7925925925925926,
+        "english_foxhound": 0.625,
+        "border_terrier": 0.837037037037037,
+        "australian_terrier": 0.8148148148148148,
+        "golden_retriever": 0.8444444444444444,
+        "old_english_sheepdog": 0.8148148148148148,
+        "samoyed": 0.9407407407407408,
+        "dingo": 0.8222222222222222
+      }
+    },
+    "checkpoint_sha256": "b4556b497a57e3c613d48c404c1256f377fd6e4022e1c73693f201431bb1099a",
+    "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
+    "note": "DogCNN-v3 150 epochs crop 0.35, EMA; 82.70%; flip 82.86% (1,073). Beaten by r2_v4_long150; weights not bundled."
+  },
+  {
+    "run": "runs/r2_v4_long150",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 83,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8347490347490347,
+      "public_predict_accuracy": 0.8347490347490347,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8592592592592593,
+        "rhodesian_ridgeback": 0.8666666666666667,
+        "beagle": 0.8222222222222222,
+        "english_foxhound": 0.5625,
+        "border_terrier": 0.837037037037037,
+        "australian_terrier": 0.8148148148148148,
+        "golden_retriever": 0.8,
+        "old_english_sheepdog": 0.8962962962962963,
+        "samoyed": 0.9555555555555556,
+        "dingo": 0.8222222222222222
+      }
+    },
+    "checkpoint_sha256": "3303616c326d5e4a0b8acb929762dfd2c9ffc17e4d9ac8af2c1146ef7e24d00b",
+    "source_sha256": "28e4a25b1dd19e4303ecdb4dbe93ed70f01cfc4b04760ed26f62d26b129ce291",
+    "note": "New best; bundled in saved_models/v4_long150_8347."
   }
 ]

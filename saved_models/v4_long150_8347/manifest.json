@@ -1,0 +1,18 @@
+{
+  "source_run": "runs/r2_v4_long150",
+  "architecture": "DogCNN-v4",
+  "validation_correct": 1081,
+  "validation_images": 1295,
+  "best_epoch": 83,
+  "validation_accuracy": 0.8347490347490347,
+  "weight_average": "EMA 0.999 (saved weights are the averaged copy; plain sequential CNN)",
+  "seed": 42,
+  "flip_average_validation_accuracy_measured_separately": 0.844015444015444,
+  "files_sha256": {
+    "config.json": "ee8304c2558a717b7c62e30514fb32be659e450cbf7683ba83b1e65e1d929c57",
+    "model.pth": "3303616c326d5e4a0b8acb929762dfd2c9ffc17e4d9ac8af2c1146ef7e24d00b",
+    "requirements.txt": "e8adcf85a21e3a122a27ff8cbb71753ab33abae851948533bcebf6d6a84495f0",
+    "solution.py": "aa8e4ee701db879eeafb18ff3326bc5ee206ed474eec1dca312e2d947fc8aad5",
+    "summary.json": "a0dacdbadce6a6a458c0f8ce0919a69e8862200b664ae21ee00539f636ba604b"
+  }
+}
