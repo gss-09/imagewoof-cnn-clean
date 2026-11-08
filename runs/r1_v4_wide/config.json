@@ -1,0 +1,53 @@
+{
+  "data_root": ".",
+  "output": "runs/r1_v4_wide",
+  "epochs": 50,
+  "batch_size": 32,
+  "lr": 0.001,
+  "weight_decay": 0.001,
+  "patience": 50,
+  "seed": 42,
+  "workers": 6,
+  "threads": 4,
+  "device": "cuda",
+  "architecture": "DogCNN-v4",
+  "crop_min": 0.85,
+  "optimizer": "AdamW",
+  "momentum": 0.9,
+  "warmup_epochs": 0,
+  "ema_decay": 0.999,
+  "log_flip": true,
+  "init_checkpoint": null,
+  "smoke": false,
+  "torch_version": "2.9.1+cu128",
+  "train_images": 9065,
+  "validation_images": 1295,
+  "class_names": [
+    "shih_tzu",
+    "rhodesian_ridgeback",
+    "beagle",
+    "english_foxhound",
+    "border_terrier",
+    "australian_terrier",
+    "golden_retriever",
+    "old_english_sheepdog",
+    "samoyed",
+    "dingo"
+  ],
+  "mean": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "std": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "split": "provided split",
+  "augmentation": "random resized crop scale 0.85\u20131.0, horizontal flip, color jitter 0.15",
+  "scheduler": "cosine",
+  "weight_average": "EMA decay 0.999 of weights and BatchNorm buffers; checkpoint selected on EMA validation",
+  "label_smoothing": 0.1,
+  "determinism": "fixed seeds; deterministic algorithms warn on unsupported operations"
+}

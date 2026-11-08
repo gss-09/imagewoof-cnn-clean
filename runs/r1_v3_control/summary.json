@@ -1,0 +1,9 @@
+{
+  "smoke_run": false,
+  "best_epoch": 42,
+  "validation_images": 1295,
+  "validation_accuracy_in_training_accelerator": 0.806949806949807,
+  "public_predict_accuracy_cpu": 0.8077220077220078,
+  "flip_average_validation_accuracy_measured_separately": 0.8154440154440155,
+  "rebuilt": "Run crashed at the old strict final check (public 0.8077 vs in-training 0.8069, one near-tied image, accelerator rounding). Weights and history were saved before the check; this summary was rebuilt locally from the log and a CPU predict check. Strict check later relaxed to 2 images in source 28e4a25b."
+}

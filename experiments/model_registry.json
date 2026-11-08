@@ -246,7 +246,8 @@
     },
     "checkpoint_sha256": "b4556b497a57e3c613d48c404c1256f377fd6e4022e1c73693f201431bb1099a",
     "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
-    "note": "DogCNN-v3 150 epochs crop 0.35, EMA; 82.70%; flip 82.86% (1,073). Beaten by r2_v4_long150; weights not bundled."
+    "note": "DogCNN-v3 150 epochs crop 0.35, EMA; 82.70%; flip 82.86% (1,073). Beaten by r2_v4_long150; weights not bundled.",
+    "flip_average_correct_measured_separately": 1073
   },
   {
     "run": "runs/r2_v4_long150",
@@ -271,6 +272,49 @@
     },
     "checkpoint_sha256": "3303616c326d5e4a0b8acb929762dfd2c9ffc17e4d9ac8af2c1146ef7e24d00b",
     "source_sha256": "28e4a25b1dd19e4303ecdb4dbe93ed70f01cfc4b04760ed26f62d26b129ce291",
-    "note": "New best; bundled in saved_models/v4_long150_8347."
+    "note": "New best; bundled in saved_models/v4_long150_8347.",
+    "flip_average_correct_measured_separately": 1093
+  },
+  {
+    "run": "runs/r1_v3_control",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 42,
+      "validation_images": 1295,
+      "validation_accuracy_in_training_accelerator": 0.806949806949807,
+      "public_predict_accuracy_cpu": 0.8077220077220078,
+      "flip_average_validation_accuracy_measured_separately": 0.8154440154440155,
+      "rebuilt": "Run crashed at the old strict final check (public 0.8077 vs in-training 0.8069, one near-tied image, accelerator rounding). Weights and history were saved before the check; this summary was rebuilt locally from the log and a CPU predict check. Strict check later relaxed to 2 images in source 28e4a25b."
+    },
+    "checkpoint_sha256": "93e5c79cc8430fa0b2c642e61d0fc64edcff7a7dfb69fc9c5d00f0e60bb1831e",
+    "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
+    "flip_average_correct_measured_separately": 1056,
+    "note": "Round 1 noise check: same recipe as 80.93% run plus workers 6 and EMA. EMA best 80.69% (in-training) / 80.77% public CPU; raw best 80.85% @44. Summary rebuilt after strict-check crash."
+  },
+  {
+    "run": "runs/r1_v4_wide",
+    "summary": {
+      "smoke_run": false,
+      "best_epoch": 34,
+      "validation_images": 1295,
+      "validation_accuracy": 0.8138996138996138,
+      "public_predict_accuracy": 0.8138996138996138,
+      "per_class_accuracy": {
+        "shih_tzu": 0.8296296296296296,
+        "rhodesian_ridgeback": 0.8592592592592593,
+        "beagle": 0.7777777777777778,
+        "english_foxhound": 0.5375,
+        "border_terrier": 0.837037037037037,
+        "australian_terrier": 0.8074074074074075,
+        "golden_retriever": 0.8074074074074075,
+        "old_english_sheepdog": 0.8296296296296296,
+        "samoyed": 0.9407407407407408,
+        "dingo": 0.8
+      }
+    },
+    "checkpoint_sha256": "ca9f7abf79396d9cb64133b5c46177990e1b4f2e95156e0d41de09168f8c285e",
+    "source_sha256": "1ffacc6ec93fec03b4457d45d7bbe419ddd1193a9b17116accfc6eda04067313",
+    "flip_average_correct_measured_separately": 1059,
+    "note": "Round 1: DogCNN-v4 50 epochs crop 0.85, EMA best epoch 34, 81.39%; raw best 81.24% @45. Not bundled."
   }
 ]

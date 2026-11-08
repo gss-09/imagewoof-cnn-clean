@@ -1,0 +1,62 @@
+Device: cuda; parameters: 2,356,458; train: 9065; validation: 1295; smoke: False
+Epoch 1/50: loss=2.1923, train=19.78%, val=10.42%, raw=23.78%, flip=10.42%, 7.7s
+Epoch 2/50: loss=2.0609, train=26.78%, val=13.90%, raw=27.80%, flip=13.90%, 7.6s
+Epoch 3/50: loss=1.9099, train=34.53%, val=10.42%, raw=38.38%, flip=10.42%, 7.7s
+Epoch 4/50: loss=1.8125, train=39.98%, val=10.42%, raw=35.21%, flip=10.42%, 7.7s
+Epoch 5/50: loss=1.7089, train=45.44%, val=10.42%, raw=32.05%, flip=10.42%, 7.7s
+Epoch 6/50: loss=1.6299, train=48.94%, val=10.42%, raw=48.49%, flip=10.50%, 7.7s
+Epoch 7/50: loss=1.5623, train=52.50%, val=11.43%, raw=49.34%, flip=11.58%, 7.7s
+Epoch 8/50: loss=1.5103, train=55.39%, val=13.20%, raw=55.75%, flip=13.05%, 7.7s
+Epoch 9/50: loss=1.4576, train=57.58%, val=16.53%, raw=51.12%, flip=16.60%, 7.8s
+Epoch 10/50: loss=1.4046, train=60.19%, val=25.71%, raw=51.89%, flip=25.41%, 7.5s
+Epoch 11/50: loss=1.3652, train=62.46%, val=34.83%, raw=61.70%, flip=34.75%, 7.5s
+Epoch 12/50: loss=1.3225, train=64.72%, val=46.10%, raw=62.32%, flip=45.95%, 7.5s
+Epoch 13/50: loss=1.2711, train=66.95%, val=54.05%, raw=50.27%, flip=54.67%, 7.5s
+Epoch 14/50: loss=1.2358, train=68.90%, val=59.69%, raw=60.77%, flip=60.23%, 7.4s
+Epoch 15/50: loss=1.1956, train=70.30%, val=63.17%, raw=63.71%, flip=63.63%, 7.3s
+Epoch 16/50: loss=1.1623, train=72.71%, val=66.56%, raw=66.02%, flip=67.10%, 7.4s
+Epoch 17/50: loss=1.1267, train=73.86%, val=69.11%, raw=63.09%, flip=69.96%, 7.3s
+Epoch 18/50: loss=1.0894, train=75.96%, val=70.73%, raw=67.64%, flip=72.43%, 7.2s
+Epoch 19/50: loss=1.0753, train=76.57%, val=71.51%, raw=67.26%, flip=73.44%, 7.1s
+Epoch 20/50: loss=1.0390, train=78.01%, val=73.13%, raw=73.75%, flip=74.83%, 7.3s
+Epoch 21/50: loss=1.0166, train=79.65%, val=74.13%, raw=75.29%, flip=75.52%, 7.3s
+Epoch 22/50: loss=0.9911, train=80.54%, val=75.52%, raw=71.89%, flip=75.83%, 7.4s
+Epoch 23/50: loss=0.9658, train=81.89%, val=76.76%, raw=73.20%, flip=76.99%, 7.4s
+Epoch 24/50: loss=0.9404, train=83.32%, val=76.45%, raw=75.29%, flip=77.61%, 7.4s
+Epoch 25/50: loss=0.9170, train=84.18%, val=77.30%, raw=71.58%, flip=77.84%, 7.4s
+Epoch 26/50: loss=0.8984, train=85.18%, val=78.30%, raw=75.06%, flip=78.69%, 7.4s
+Epoch 27/50: loss=0.8756, train=86.63%, val=78.15%, raw=76.91%, flip=78.92%, 7.3s
+Epoch 28/50: loss=0.8543, train=87.31%, val=78.07%, raw=75.75%, flip=79.61%, 7.4s
+Epoch 29/50: loss=0.8304, train=88.69%, val=78.76%, raw=75.68%, flip=80.39%, 7.4s
+Epoch 30/50: loss=0.8096, train=89.93%, val=78.92%, raw=78.84%, flip=80.39%, 7.4s
+Epoch 31/50: loss=0.7905, train=90.95%, val=79.23%, raw=77.45%, flip=81.00%, 7.3s
+Epoch 32/50: loss=0.7750, train=91.53%, val=79.23%, raw=78.92%, flip=80.93%, 7.5s
+Epoch 33/50: loss=0.7570, train=92.74%, val=79.38%, raw=77.68%, flip=81.31%, 7.6s
+Epoch 34/50: loss=0.7422, train=93.03%, val=79.77%, raw=79.07%, flip=81.31%, 7.5s
+Epoch 35/50: loss=0.7249, train=93.86%, val=79.61%, raw=77.84%, flip=80.93%, 7.6s
+Epoch 36/50: loss=0.7191, train=94.05%, val=79.69%, raw=77.92%, flip=81.16%, 7.7s
+Epoch 37/50: loss=0.7065, train=95.00%, val=80.00%, raw=78.92%, flip=81.08%, 7.8s
+Epoch 38/50: loss=0.7047, train=95.12%, val=80.23%, raw=78.30%, flip=81.70%, 7.7s
+Epoch 39/50: loss=0.6864, train=96.05%, val=80.23%, raw=79.07%, flip=81.62%, 7.8s
+Epoch 40/50: loss=0.6785, train=96.22%, val=80.31%, raw=80.54%, flip=81.47%, 8.1s
+Epoch 41/50: loss=0.6721, train=96.45%, val=80.39%, raw=79.54%, flip=81.54%, 7.9s
+Epoch 42/50: loss=0.6670, train=96.83%, val=80.69%, raw=79.61%, flip=81.54%, 8.0s
+Epoch 43/50: loss=0.6618, train=97.05%, val=80.62%, raw=79.61%, flip=81.70%, 8.1s
+Epoch 44/50: loss=0.6576, train=97.44%, val=80.46%, raw=80.85%, flip=81.62%, 8.1s
+Epoch 45/50: loss=0.6569, train=97.42%, val=80.62%, raw=80.46%, flip=81.39%, 8.1s
+Epoch 46/50: loss=0.6549, train=97.44%, val=80.46%, raw=80.23%, flip=81.39%, 8.0s
+Epoch 47/50: loss=0.6500, train=97.65%, val=80.15%, raw=80.46%, flip=81.47%, 8.0s
+Epoch 48/50: loss=0.6498, train=97.68%, val=80.23%, raw=79.77%, flip=81.47%, 8.0s
+Epoch 49/50: loss=0.6428, train=98.23%, val=80.23%, raw=79.85%, flip=81.31%, 7.8s
+Epoch 50/50: loss=0.6490, train=97.82%, val=80.23%, raw=80.00%, flip=81.31%, 7.8s
+Traceback (most recent call last):
+  File "./setup/r1_v3_control_solution.py", line 439, in <module>
+    main()
+  File "./setup/r1_v3_control_solution.py", line 435, in main
+    train(parser.parse_args())
+  File "./setup/r1_v3_control_solution.py", line 390, in train
+    public_accuracy = check_public_interface(restored, val_data, best_accuracy)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./setup/r1_v3_control_solution.py", line 235, in check_public_interface
+    raise RuntimeError(f"Public accuracy {accuracy} differs from validation {expected_accuracy}")
+RuntimeError: Public accuracy 0.8077220077220078 differs from validation 0.806949806949807

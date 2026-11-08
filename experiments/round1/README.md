@@ -29,3 +29,22 @@ Reference: `runs/v3_weight_decay_001`, DogCNN-v3, 80.93% (1,048/1,295), raw weig
 | `r1_v4_wide` | 1 | 2× wider network | Is the network capacity-limited? |
 
 Compare raw-weight best (from `validation_raw`) against 80.93% for single-change effects; EMA and flip numbers are extra information from the same runs.
+
+## Results (completed November 7, 2026; all reproduced through public `predict`)
+
+Source SHA-256 `1ffacc6e…`. Workers 6 cut epoch time from ~21 s to ~7.7 s (v3) and 9.5 s (v4).
+
+| Run | Raw best | EMA best (saved) | Public `predict` | Flip-averaged (saved checkpoint, separate script) | Final train |
+| --- | --- | --- | --- | --- | --- |
+| `r1_v3_control` | 80.85% @44 | 80.69% @42 | 80.77% (1,046) | 81.54% (1,056) | ~98% |
+| `r1_v4_wide` | 81.24% @45 | 81.39% @34 | 81.39% (1,054) | 81.78% (1,059) | 99.68% |
+| `r1_v3_long150` | 82.47% @112 | **82.70% @71** | 82.70% (1,071) | 82.86% (1,073) | 98.85% |
+
+Findings:
+
+- Run-to-run noise: the control reproduced the 80.93% reference within one image (raw 80.85%). EMA alone gave no clear gain at 50 epochs.
+- Doubling width gave about +0.5 point at 50 epochs and memorized faster (99.7% train).
+- 150 epochs with crops 0.35–1.0 was the clear winner: +1.8 points over the reference. The best per-epoch flip-averaged score was 83.94% @105, but the saved checkpoint is selected by single-view EMA accuracy.
+- `r1_v3_control` crashed at the old strict final check (public 0.8077 vs in-training 0.8069, one near-tied image; accelerator rounding, inputs identical on CPU). Weights and history were already saved; its `summary.json` was rebuilt locally. The check now tolerates up to 2 images (source 28e4a25b…). The other two runs passed the strict check.
+
+Next: combine width with the long schedule (round 2).
