@@ -570,5 +570,17 @@
     "checkpoint_sha256": "c7a9e19f4b604e94e89c3318c1a0e0e8fda1deaba79eaf5093871add3879722e",
     "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
     "note": "86.72% recipe on all supplied train+val (--train-on-val), full 150 epochs, final epoch saved. Unscored; CPU verifier passed."
+  },
+  {
+    "run": "runs/r10_v4_resplit9505",
+    "summary": {
+      "best_epoch": 126,
+      "validation_images": 518,
+      "validation_accuracy": 0.8783783783783784,
+      "public_predict_accuracy": 0.8783783783783784
+    },
+    "checkpoint_sha256": "8e71ad810c49c01627acfc9b702c6f8d213f0e99207656c650cdfc1d55def8b2",
+    "source_sha256": "ad63459abc3c08f7a2bd2bef14b7e265a969e444081669c450d4c8f862596839",
+    "note": "86.72% recipe on seeded stratified 95/5 re-split (9,842/518). EMA best @126 87.84% (455/518); noisy (1 image ~0.19 pt). Not directly comparable to 86.72%."
   }
 ]
