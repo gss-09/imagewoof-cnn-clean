@@ -1,0 +1,17 @@
+{
+  "data_root": ".",
+  "output": "runs/r15_clean_resplit9901",
+  "val_fraction": 0.01,
+  "epochs": 150,
+  "batch_size": 32,
+  "lr": 0.05,
+  "weight_decay": 0.001,
+  "warmup_epochs": 5,
+  "ema_decay": 0.999,
+  "seed": 42,
+  "workers": 6,
+  "threads": 4,
+  "device": "cuda",
+  "train_images": 10255,
+  "validation_images": 105
+}
