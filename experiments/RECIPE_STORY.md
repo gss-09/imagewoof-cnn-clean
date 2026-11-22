@@ -1,4 +1,4 @@
-# How we got to the final recipe (COSC 4368 HW2, Nov 7–8, 2026)
+# How we got to the final recipe
 
 Every number below is validation accuracy measured through the public `predict` function, single view, seed 42. Each experiment changed one thing at a time, chosen by hand (no tuning libraries). Details for each step are in `experiments/` and `runs/`.
 
