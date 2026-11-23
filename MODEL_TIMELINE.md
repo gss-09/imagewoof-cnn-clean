@@ -4,7 +4,7 @@ The first Git commit on November 7, 2026, captured the project through DogCNN-v2
 
 ## November 7 · From the first snapshot to ten convolutions
 
-The [initial snapshot](https://github.com/gss-09/imagewoof-cnn/commit/f2c3331e704b46f3c512c2b86aaf23ca62271aef) records the first three model milestones. The baseline and first v2 runs had already finished when this commit was made. All three used the original course split of 9,065 training and 1,295 validation images.
+The initial snapshot records the first three model milestones. The baseline and first v2 runs had already finished when this commit was made. All three used the original course split of 9,065 training and 1,295 validation images.
 
 | Experiment | Change | Top-1 accuracy | Best epoch |
 | --- | --- | ---: | ---: |
@@ -65,4 +65,4 @@ The [Group 20 package record](submission/README.md) documents the two files in t
 
 ## November 22 · Publishing the result
 
-The [README revision](https://github.com/gss-09/imagewoof-cnn/commit/98c6d12c63e138f636861cd424d4709b789bf079) put the final 99/1 score, the 90/10 and 95/5 results, and the original course validation result together with their denominators. The 80.93% figure belongs to the earlier DogCNN-v3 checkpoint.
+The README revision put the final 99/1 score, the 90/10 and 95/5 results, and the original course validation result together with their denominators. The 80.93% figure belongs to the earlier DogCNN-v3 checkpoint.
