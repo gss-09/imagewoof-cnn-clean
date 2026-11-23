@@ -1,4 +1,4 @@
-# Selected model
+# Historical DogCNN-v2 bundle
 
 `model.pth` is our DogCNN-v2 checkpoint from epoch 45: **78.1467% validation accuracy (1,012/1,295)**. `solution.py` is the matching self-contained implementation; `requirements.txt` records dependencies. `manifest.json` records file hashes and provenance. `config.json` and `summary.json` are copies of the original training records; their paths refer to the original run.
 
