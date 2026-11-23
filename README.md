@@ -21,11 +21,11 @@ The earlier DogCNN-v3 checkpoint reached **80.93%** on the original validation s
 | --- | --- |
 | `saved_models/` | Versioned checkpoint bundles with matching inference code and training records |
 | `best_model/` | Historical v2 bundle that reached 78.15% |
-| `experiments/PROCESS.md` | Saved training process, results, verification, and cleanup record |
+| `experiments/PROCESS.md` | Early training process, results, verification, and cleanup record |
 | `solution.py` | Four CNN architectures, training CLI, checkpoint loading, and grader prediction interface |
 | `verify_pipeline.py` | Dataset label checks and CPU inference checks, including a fresh isolated process |
 | `train_mps.command` | Terminal launcher for the default v1 baseline |
-| `experiments/depth_8conv.md` | Prepared v2 design, checks, launch command, and evaluation plan |
+| `experiments/depth_8conv.md` | Completed v2 experiment, launch command, and validation results |
 | `runs/baseline_full/` | Local baseline checkpoint, logs, and plots. Configuration and summary are tracked in Git |
 | `requirements.txt` | Python dependencies |
 | `AGENTS.md` | Instructions for agents working in this folder |

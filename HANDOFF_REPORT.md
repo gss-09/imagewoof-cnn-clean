@@ -1,28 +1,14 @@
 # CNN assignment: work report and agent handoff
 
-Prepared after the evening experiment session, November 7, 2026. This report covers the accumulated work in this conversation, including the earlier baseline, so a new agent can continue without the chat history.
+## 1. Current package
 
-## 1. Current state: read this first
+The verified local [Group 20 package](submission/README.md) contains the standalone `solution.py` and the DogCNN-v4 checkpoint selected at epoch 113. It scored **89.52% (94/105)** on the seeded 99/1 validation split. Round 15 reproduced the weight tensors exactly. The best result on the original course split was **86.72% (1,123/1,295)**. See the [model timeline](MODEL_TIMELINE.md) and [results report](reports/model-results.md) for the later experiments.
 
-- **Update November 8, 2026 (round 5): new best 86.7181% (1,123/1,295)**, the SGD recipe with weight decay 0.001, EMA best epoch 123. Bundle **`saved_models/v4_sgd_wd001_8672/`**, tag **`v4-sgdwd001-86.72`**. Flip 86.49% (no help). 100-epoch schedule gave 84.63%. See `experiments/round5/README.md`. No training active.
-- Earlier November 8 update: 86.1004% (1,115/1,295)**, same DogCNN-v4 recipe but SGD Nesterov (momentum 0.9, lr 0.05, wd 0.0005, 5 warm-up epochs, cosine), EMA best epoch 89. Bundle **`saved_models/v4_sgd005_8610/`**, tag **`v4-sgd005-86.10`**. Flip averaging measured separately 86.41%; `predict` still single view. SGD lr 0.1 gave 85.64%. See `experiments/round4/README.md`. No training active.
-- **Update November 7, 2026 (late): new best 83.4749% (1,081/1,295)**, DogCNN-v4, 150 epochs, crops 0.35–1.0, EMA 0.999 weights, best epoch 83. Bundle **`saved_models/v4_long150_8347/`**, tag **`v4-long150-83.47`**. Flip averaging measured separately 84.40%; `predict` still single view. See `experiments/round1/README.md`, `experiments/round2/README.md` and `experiments/round3/README.md` (round 3: no new best; seed 43 gave 82.93%, stronger aug 82.63%). Round runs: `r1_v3_control` 80.77%, `r1_v4_wide` 81.39%, `r1_v3_long150` 82.70%, `r2_v4_long150` 83.47%. No training active. The bullets below describe the earlier state (80.93% best) and are kept for history.
-
-- Best measured validation result: **80.9266409% (1,048/1,295)**, DogCNN-v3, epoch45 of a 50-epoch run with AdamW weight decay0.001.
-- Selected bundle: **`saved_models/v3_wd001_8093/`**. Contains the actual trained `model.pth`, exact `solution.py`, requirements, config, summary, and SHA-256 manifest. Binary weights intentionally committed to local Git, tag **`v3-wd001-80.93`**.
-- Most recent experiment: continued that checkpoint for10 extra epochs with weight decay0 and starting learning rate0.00001. **No improvement.** Extra epoch10 tied80.9266%; the selected checkpoint remained initialization epoch0, with state tensors exactly identical to the original epoch45 model.
-- **No training remains active from our experiments.**
-- Latest local Git commit: **`837fa9a`**, recording the unsuccessful continuation. Working tree was clean after that commit, before adding this report.
-- No assignment submission or final submission archive has been made. Group information and contribution report remain outstanding.
-- User wants meaningful improvements, a compliant independent implementation, saved model versions in local Git, and live monitoring when requested.
+The package is ready locally. Canvas submission and live-evaluation booking status are unverified. Sections 3–6 retain the implementation and experiment record through round 5.
 
 ## 2. Local environment
 
-Local project:
-
-```text
-/Users/shriyanssaiganipisetti/Desktop/Intro to ai assignment 2
-```
+Run local commands from the repository root.
 
 The Mac's MPS accelerator also works outside the restricted agent sandbox. A sandbox-only false availability result is not evidence that PyTorch needs reinstalling.
 
@@ -68,10 +54,11 @@ Each architecture block is two3×3, padding1, bias-free convolutions, each follo
 | DogCNN-v1 | 32,64,128 | 6 | 288,746 |
 | DogCNN-v2 | 32,64,128,192 | 8 | 843,114 |
 | DogCNN-v3 | 32,64,128,256,256 | 10 | 2,356,458 |
+| DogCNN-v4 | 64,128,256,512,512 | 10 | 9,413,066 |
 
 V3 spatial sizes after pooling:64,32,16,8,4. No skip connections or pretrained components.
 
-CLI default remains **DogCNN-v1**. Explicitly select `--architecture DogCNN-v3` for v3 experiments; do not accidentally run the default. `train_mps.command` is historical and selects v1. Checkpoint loading selects the architecture recorded in metadata.
+The root training CLI and `train_mps.command` default to **DogCNN-v1**. Select another architecture with `--architecture`. Checkpoint loading selects the architecture recorded in metadata. The standalone code in the Group 20 package defaults to the final v4 recipe.
 
 Current training augmentation: RandomResizedCrop128, scale0.85–1.0; horizontal flip; ColorJitter0.15; ToTensor; normalization mean/std=(0.5,0.5,0.5). No random erasing in root code. Earlier v1/v2 used crop minimum0.7. Exact historical source is saved per run.
 
@@ -91,7 +78,7 @@ Training saves the strict best validation checkpoint, full history/config/split/
 
 ## 5. Experiment history and results
 
-All full runs used seed42 and the supplied split. Full fresh runs used AdamW, batch32, starting lr0.001, cosine50, label smoothing0.1, Dropout0.3, patience10. Weight decay was0.0001 except the final stronger-decay run. Workers0, threads4. Current continuation used the specific settings below.
+The early baseline and v2 experiments used seed 42 and the supplied split. Fresh baseline and v2 runs used AdamW, batch size 32, learning rate 0.001, cosine decay over 50 epochs, label smoothing 0.1, dropout 0.3, patience 10, zero workers, and four CPU threads. Later settings are recorded per run.
 
 | Run directory | Change / hardware | Epochs completed | Best epoch | Best validation |
 | --- | --- | ---: | ---: | ---: |
@@ -123,7 +110,7 @@ Interpretation:
 3. V3 improved on best v2 by14 images, to80%.
 4. Stronger weight decay improved v3 by12 images, +0.9266 percentage points.
 5. Continuation attempts on both v2 and final v3 gave no improvement. Do not describe an epoch0 retained score as newly improved training performance.
-6. Best-to-baseline gain:135 more correct images, +10.4247 percentage points.
+6. The 80.93% v3 checkpoint gained 135 correct images and 10.42 percentage points over the baseline.
 
 Random erasing settings were p0.25, scale0.02–0.12, ratio0.5–2.0, value0 after normalization, training only. Its exact source remains in its run directory.
 
@@ -150,7 +137,7 @@ Best checkpoint per-class validation:
 | samoyed | 94.07% |
 | dingo | 77.78% |
 
-### Most recent continuation
+### V3 zero-weight-decay continuation
 
 User asked to remove weight decay and continue with the previously discussed smaller learning rate. We explicitly interpreted that as0.00001 and communicated it before launch. The run finished.
 
@@ -160,13 +147,13 @@ Fresh AdamW with weight_decay0; lr0.00001 decaying over10 epochs; patience10; sa
 
 Completed selected checkpoints passed `verify_pipeline.py`: official labels, raw-pixel preprocessing parity, repeatability, single/multiple/empty batches, input validation, and fresh-process CPU loading. Split equality and recorded SHA-256 agreement were checked for recent experiments. Public-interface full validation reproduced saved scores. The continuation state tensors were compared with `torch.equal` against the initial checkpoint and matched exactly.
 
-Best checkpoint SHA-256:
+80.93% v3 checkpoint SHA-256
 
 ```text
 c2edde1051dbe9e81d6cdde49610555c1527f0d2d724d1f898ae69e7f1265ce1
 ```
 
-Current root and best-model exact source SHA-256:
+80.93% v3 training source SHA-256
 
 ```text
 cf52f8e5f97a9f1d3ab20bf79fd02213f4811a21e4c51ef571020b41b6e86f2d
@@ -182,7 +169,7 @@ The continuation file hash differs because saved metadata differs; state tensors
 
 Preserved bundles:
 
-- `saved_models/v3_wd001_8093/`: current80.93% best.
+- `saved_models/v3_wd001_8093/`: historical 80.93% v3 checkpoint.
 - `saved_models/v3_depth10_8000/`: earlier80.00% v3.
 - `saved_models/v2_crop085_7892/`: earlier78.92% v2.
 - `best_model/`: historical78.15% v2, intentionally not overwritten.
@@ -191,23 +178,9 @@ Ordinary run weights and data are ignored by Git. The three `saved_models` bundl
 
 Earlier authorized cleanup removed five disposable smoke directories after archiving their JSON records in `experiments/smoke_checks.json`. A redundant historical v2 continuation checkpoint was removed after tensor equality was established; its reference JSON points to original weights. Missing disposable artifacts are not evidence of training failure. Do not remove original data, coursework, full experiment records, or reference material.
 
-## 7. Local Git history
+## 7. Git history
 
-Local repository on `master`, no configured Git upstream. User requested local version snapshots of different models.
-
-| Commit | Work |
-| --- | --- |
-| `4c6fee8` | Preserve completed experiments through78.92% |
-| `f86c1c5` | Prepare random erasing |
-| `07ba934` | Record erasing78.22% |
-| `3570a66` | Archive v2 best, including weights/source |
-| `ec3d851` | Prepare v3 architecture |
-| `4be6a58` | Complete v3 and archive80.00% |
-| `7b10f66` | Prepare stronger weight decay |
-| `eed77fa` | Complete/archive80.93% best |
-| `837fa9a` | Record zero-decay continuation with no gain |
-
-Tags include `v2-crop085-78.92`, `v2-erasing025-78.22`, `best-v2-7892-bundle`, `v3-prepared`, `v3-depth10-80.00`, and **`v3-wd001-80.93`**.
+The local `master` branch tracks `origin/master` on the [replacement repository](https://github.com/gss-09/imagewoof-cnn-clean). Use the [model timeline](MODEL_TIMELINE.md), checkpoint tags, and [model registry](experiments/model_registry.json) to locate experiment records in the rewritten history.
 
 ## 8. User preferences
 
@@ -217,36 +190,20 @@ The user prefers action over repeated confirmation, short clear progress updates
 
 | Run directory | Change | Best epoch | Best validation | Flip-averaged (measured separately) |
 | --- | --- | ---: | ---: | ---: |
-| `runs/v3_weight_decay_001` | wd 0.001 (current best) | 45 | 80.9266%, 1048/1295 | 81.8533%, 1060/1295 |
+| `runs/v3_weight_decay_001` | wd 0.001 (best in this comparison) | 45 | 80.9266%, 1048/1295 | 81.8533%, 1060/1295 |
 | `runs/v3_wd_01` | wd 0.01 | 39 | 79.4595%, 1029/1295 | 79.3822%, 1028/1295 |
 | `runs/v3_wd_05` | wd 0.05 | 43 | 79.9228%, 1035/1295 | 81.0039%, 1049/1295 |
 
-Both new runs: fresh 50 epochs, everything else identical, completed, public `predict` reproduced, splits identical. Weight decay 0.001 remains best. Flip averaging is not implemented in `predict`; the user will decide later.
+Both new runs: fresh 50 epochs, everything else identical, completed, public `predict` reproduced, splits identical. Weight decay 0.001 remains best. The prediction interface uses single-view inference.
 
-## 9. Remaining work and possible directions
+## 9. Submission and live evaluation
 
-No new experiment is prepared or running beyond the completed ones above. Previously discussed ideas include testing an alternative optimizer such as SGD with momentum, repeating the strongest setup with a different seed, or other manually selected compliant changes. These are possibilities, not completed work or guaranteed improvements. Stronger augmentation by random erasing and simple continuation have already been tested and failed to help in these settings. Do not repeat them accidentally.
+The archive has been built and verified. The course also requires a contribution PDF, a Canvas comment with each teammate's name and ID, and in-person evaluation booking. Verify their status with the group or in Canvas. Refer to [AGENTS.md](AGENTS.md#submission-and-live-evaluation) for course requirements.
 
-Reasonable next review: inspect class confusions, especially english_foxhound, and choose one deliberate experiment with a clear hypothesis. Retain supplied split for comparable results, or explicitly document any allowed resplit. Repeated tuning on one validation set and a single seed does not establish hidden-test accuracy. No hidden-test result or top-three placement is known.
-
-Submission requirements:
-
-- Deadline from `extra directions.txt`: **November8,2026,11:59pm**, Canvas; timezone not specified in local materials.
-- Archive name `GroupX_Assignment.zip`, replacingX with actual group number; include code `.py`/`.ipynb` and trained `model.pth`/`.keras`.
-- Contribution PDF must describe all members' responsibilities, specific contributions, percentages totaling100%, collaboration, and review/acknowledgment by all members. Obtain actual group names, IDs, percentages and acknowledgments; do not invent them.
-- Need to confirm whether contribution PDF goes inside ZIP or separately on Canvas.
-- Submission comment must list teammate names and IDs.
-- One group member books evaluation for November9–22, PGH370, via instructor email/Teams. No slides/statistical analysis required. Do not send messages without explicit authorization.
-- Before final packaging, stage exact chosen source and weights together, test fresh CPU loading/public inference from staging, and inspect archive contents. Do not submit automatically.
-
-## 10. Useful commands and next-agent checks
+## 10. Local verification
 
 ```bash
-# Local checks; do not train:
-python3 verify_pipeline.py saved_models/v3_wd001_8093/model.pth
+unzip -l submission/Group20_Assignment.zip
+python3 verify_pipeline.py saved_models/v4_resplit9901_8952/model.pth
 git status --short
-git log -n 10 --oneline
-
 ```
-
-Primary records: `AGENTS.md`, this report, per-run config/history/summary/verification files, per-experiment README, `experiments/model_registry.json`, and bundle manifests. Some older narrative setup documents retain historical phrases such as “prepared” or an older “best”; use the latest actual artifacts and this current state rather than treating those stale paragraphs as live process status.

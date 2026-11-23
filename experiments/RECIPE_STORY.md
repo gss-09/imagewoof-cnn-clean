@@ -90,7 +90,7 @@ A 100/0 version (all 10,360 images) has no validation images, so its stopping ep
 ## 9. The final submission
 
 - **Model:** `saved_models/v4_resplit9901_8952/model.pth` (SHA-256 2d8f6073…).
-- **Code:** a cleaned `solution.py` (`submission/staged/`) with only the code that trained this model; its defaults are the final recipe. A full retrain with it in round 15 reproduced the submitted weights bit for bit: same epoch 113, same 89.52%, identical tensors.
+- **Code:** a cleaned `solution.py` (`submission/staged/`) with only the code that trained this model; its defaults are the final recipe. A full retrain with it in round 15 reproduced the packaged weights bit for bit: same epoch 113, same 89.52%, identical tensors.
 
 ### Final recipe
 

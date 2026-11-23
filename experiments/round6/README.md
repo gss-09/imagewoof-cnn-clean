@@ -12,4 +12,4 @@ Code change: `--train-on-val` adds the validation images to training (with train
 Findings:
 
 - wd 0.002 slowed learning (73% vs 81% at epoch 48), caught up near epoch 110, peaked at 113, then still memorized. 14 images below wd 0.001, so 0.001 stays.
-- The train+val retrain cannot be evaluated on held-out data. It is a candidate final model only if the group accepts submitting an unscored model; the measured best remains `saved_models/v4_sgd_wd001_8672/` (86.72%).
+- The train+val retrain cannot be evaluated on held-out data. The measured best on the original split was 86.72% from `saved_models/v4_sgd_wd001_8672/`. The [Group 20 package](../../submission/README.md) later selected the scored 99/1 checkpoint.

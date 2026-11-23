@@ -5,6 +5,6 @@ The cleaned, submission-only `solution.py` (copy: `solution_clean.py`, SHA-256 8
 ## Result (finished Nov 8, 2026)
 
 - Best epoch **113: 89.52% (94/105)**, reloaded `predict()` 89.52%, per-breed accuracy identical to r12.
-- Every weight tensor is **bit-identical** to the submitted r12 checkpoint (max abs difference 0.0). The file hash differs (9ea80e54… vs 2d8f6073…) only because the cleaned code saves fewer metadata fields.
-- Conclusion: the submitted cleaned `solution.py` reproduces the submitted `model.pth` exactly from seed 42.
+- Every weight tensor is **bit-identical** to the packaged round 12 checkpoint (max abs difference 0.0). The file hash differs (9ea80e54… vs 2d8f6073…) only because the cleaned code saves fewer metadata fields.
+- Conclusion: the packaged `solution.py` reproduces the packaged model's weight tensors exactly from seed 42.
 - The exact Group20 zip was also tested: loads on CPU, 94/105 on CPU and 94/105 on accelerator after `model.cuda()`.
