@@ -15,6 +15,7 @@ lectures/
 *.pdf
 .cache/
 setup/
+/graphify-out/
 
 # Explicitly preserved best-model bundle includes its checkpoint.
 !saved_models/v2_crop085_7892/model.pth

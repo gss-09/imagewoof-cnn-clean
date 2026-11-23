@@ -13,7 +13,7 @@ A custom sequential PyTorch CNN trained from scratch to classify ten Imagewoof b
 
 The original-split checkpoint scored 86.72% on CPU and 86.64% on accelerator. The re-splits pool the supplied training and validation data, then hold out different images. The 99/1 result comes from 105 images, so each prediction changes the score by about 0.95 percentage points. All four figures are validation results.
 
-The earlier DogCNN-v3 checkpoint reached **80.93%** on the original validation split. See the [experiment history](experiments/RECIPE_STORY.md) for the progression from v1 through v4 and the [Group 20 package notes](submission/README.md) for the final checkpoint and its CPU and accelerator verification.
+The earlier DogCNN-v3 checkpoint reached **80.93%** on the original validation split. Follow the [model development timeline](MODEL_TIMELINE.md) from the first commit to the final checkpoint. The [Group 20 package notes](submission/README.md) describe the final verification.
 
 ## Files and responsibilities
 
@@ -29,6 +29,10 @@ The earlier DogCNN-v3 checkpoint reached **80.93%** on the original validation s
 | `runs/baseline_full/` | Local baseline checkpoint, logs, and plots. Configuration and summary are tracked in Git |
 | `requirements.txt` | Python dependencies |
 | `AGENTS.md` | Instructions for agents working in this folder |
+
+## Project graph
+
+The project includes the `$graphify` skill. With the [Graphify CLI](https://github.com/Graphify-Labs/graphify) installed, refresh the local code index from the repository root with `graphify extract . --code-only`. The index includes the main training and inference code, the final recipe source, and the verification utilities.
 
 ## Model and preprocessing
 

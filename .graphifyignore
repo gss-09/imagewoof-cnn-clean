@@ -1,0 +1,11 @@
+# Keep local coursework and duplicate run snapshots out of the project graph.
+/*.ipynb
+imagewoof_train/
+imagewoof_val/
+lectures/
+HW2-1.pdf
+runs/
+saved_models/
+best_model/
+submission/
+.agents/
